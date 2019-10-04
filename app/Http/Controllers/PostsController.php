@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -14,9 +15,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-
-        return view('posts.index', compact('posts'));
+        $posts = DB::select('select * from toilets');
+        return view('posts.index', ['posts'=> $posts]);
     }
 
     // public function show($post) {
@@ -52,7 +52,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = DB::table('toilets')->where('id', $id)->first();
+        return view('posts.show', ['post'=>$post]);
     }
 
     /**

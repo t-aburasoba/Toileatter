@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTotalizationTable extends Migration
+class CreateTotalizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTotalizationTable extends Migration
      */
     public function up()
     {
-        Schema::create('totalization', function (Blueprint $table) {
+        Schema::create('totalizations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('evaluation');
             $table->integer('total_users');
@@ -29,6 +29,6 @@ class CreateTotalizationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('totalization');
+        Schema::dropIfExists('totalizations');
     }
 }
