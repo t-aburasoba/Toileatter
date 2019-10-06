@@ -15,11 +15,18 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('closet_bowl_number');
-            $table->string('beautifulness',30);
-            $table->string('quickly_enter',30);
-            $table->string('distance',30);
+            $table->string('toilet_image_name', 255)->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->integer('closet_bowl_number')->default(0);
+            $table->string('beautifulness',30)->default('未回答');
+            $table->string('quickly_enter',30)->default('未回答');
+            $table->string('distance',30)->default('未回答');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

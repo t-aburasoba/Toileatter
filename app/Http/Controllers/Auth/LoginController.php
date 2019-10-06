@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Socialite;
 
 class LoginController extends Controller
 {
@@ -19,17 +18,6 @@ class LoginController extends Controller
     |
     */
 
-    /**
-     * OAuth認証先にリダイレクト
-     *
-     * @param str $provider
-     * @return \Illuminate\Http\Response
-     */
-    public function redirectToProvider($provider)
-    {
-        return Socialite::driver($provider)->redirect();
-    }
-
     use AuthenticatesUsers;
 
     /**
@@ -37,7 +25,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
+    protected function redirectTo(){
+        return route('home');
+    }
 
     /**
      * Create a new controller instance.

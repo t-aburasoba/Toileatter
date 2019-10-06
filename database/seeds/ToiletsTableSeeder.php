@@ -13,25 +13,29 @@ class ToiletsTableSeeder extends Seeder
     {
         DB::table('toilets')->insert([
 
-            ['closet_bowl_number' => '5',
+            ['toilet_name' => '秋葉原駅西口',
+            'closet_bowl_number' => '5',
             'toilet_image_name'=> 'toilet1',
             'latitude'=>'135',
             'longtitude' => '45',
             ],
 
-            ['closet_bowl_number' => '6',
+            ['toilet_name' => '新宿駅西口',
+            'closet_bowl_number' => '6',
             'toilet_image_name'=> 'toilet2',
             'latitude'=>'135',
             'longtitude' => '45',
             ],
 
-            ['closet_bowl_number' => '2',
+            ['toilet_name' => '田町駅',
+            'closet_bowl_number' => '2',
             'toilet_image_name'=> 'toilet3',
             'latitude'=>'135',
             'longtitude' => '45',
             ],
 
-            ['closet_bowl_number' => '4',
+            ['toilet_name' => '上野駅東口',
+            'closet_bowl_number' => '4',
             'toilet_image_name'=> 'toilet4',
             'latitude'=>'135',
             'longtitude' => '45',

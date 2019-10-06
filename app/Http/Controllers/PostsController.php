@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PostRequest;
 
 class PostsController extends Controller
 {
@@ -15,8 +16,14 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = DB::select('select * from toilets');
-        return view('posts.index', ['posts'=> $posts]);
+        $posts = Post::all();
+
+        // dd($posts);
+        return view('posts.index', ['posts' => $posts]);
+
+
+        // $posts = DB::select('select * from toilets');
+        // return view('posts.index', ['posts'=> $posts]);
     }
 
     // public function show($post) {
@@ -30,7 +37,11 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        $q = \Request::query();
+        // dd($q['toilet_id']);
+        return view('posts.create', [
+            'toilet_id' => $q['toilet_id'],
+        ]);
     }
 
     /**
@@ -39,9 +50,28 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        if($request->file('toilet_image_name')->isValid()){
+            
+            // dd($request->file('toilet_image_name'));
+            $post = new Post;
+            // $input = $request->only($post->getFillable());
+            $post->closet_bowl_number = $request->closet_bowl_number;
+            $post->beautifulness = $request->beautifulness;
+            $post->quickly_enter = $request->quickly_enter;
+            $post->distance = $request->distance;
+            
+            $filename = $request->file('toilet_image_name')->store('public/image');
+
+            $post->toilet_image_name = basename($filename);
+
+            // dd($post);
+            $post->save();
+
+        }
+
+        return redirect('posts');
     }
 
     /**
@@ -52,8 +82,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = DB::table('toilets')->where('id', $id)->first();
-        return view('posts.show', ['post'=>$post]);
+        // $post = Post::all();
+
+        // return view('posts.show', ['post'=>$post]);
     }
 
     /**
@@ -64,7 +95,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -76,7 +109,11 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->update($post->validated());
+
+        return redirect(url('posts', [$post->id]));
     }
 
     /**
@@ -87,6 +124,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        return redirect('posts');
     }
 }

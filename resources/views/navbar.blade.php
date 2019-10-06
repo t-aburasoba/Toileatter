@@ -13,10 +13,7 @@
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Checkin</a>
+          <a class="nav-link" href="{{route('toilet.index')}}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="">Setting</a>

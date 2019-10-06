@@ -11,25 +11,31 @@
 |
 */
 
-Route::get('/', function () {
-    return view('mypage');
-});
+// Route::get('/', function () {
+//     return view('mypage');
+// });
 
 Route::resource('posts', 'PostsController');
+Route::resource('toilet', 'ToiletController');
+Route::resource('totalization', 'TotalizationController');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 // Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
 
-//ログイン認証するためのルーティング
-Route::get('/oauth', 'OAuthController@login');
+// //ログイン認証するためのルーティング
+// Route::get('/oauth', 'OAuthController@login');
 
-//Callback用のルーティング
-Route::get('/callback', 'OAuthController@callBack');
+// //Callback用のルーティング
+// Route::get('/callback', 'OAuthController@callBack');
 
-//indexのルーティング
-Route::get('/index', 'OAuthController@index');
+// //indexのルーティング
+// Route::get('/index', 'OAuthController@index');
 
-//logoutのルーティング
-Route::get('/logout', 'OAuthController@logout');
+// //logoutのルーティング
+// Route::get('/logout', 'OAuthController@logout');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
