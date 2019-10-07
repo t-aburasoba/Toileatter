@@ -30,7 +30,9 @@ class PostRequest extends FormRequest
             'distance'=>'required',
             'created_at'=>'nullable',
             'updated_at'=>'nullable',
-            'toilet_image_name'=>'nullable'
+            'toilet_image_name'=>'nullable',
+            'user_id'=>'required|numeric',
+            'toilet_id'=>'required|numeric',
         ];
     }
 }

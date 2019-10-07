@@ -1,4 +1,5 @@
-@extends('layout')
+@extends('layouts.app')
+
 @section('content')
 <h2>Check In　トイレの評価をしましょう</h2>
 

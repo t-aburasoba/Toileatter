@@ -27,7 +27,7 @@ class ResetPasswordController extends Controller
      */
     // protected $redirectTo = '/home';
     protected function redirectTo(){
-        return route('home');
+        return route('toilet.index');
     }
 
     /**

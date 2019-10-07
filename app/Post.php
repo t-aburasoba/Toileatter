@@ -15,6 +15,8 @@ class Post extends Model
         'beautifulness',
         'quickly_enter',
         'distance',
+        'user_id',
+        'toilet_id',
     ];
 
     public function totalization(){

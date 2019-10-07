@@ -23,7 +23,7 @@ class Toilet extends Model
     }
 
     public function post(){
-        return $this->hasMany(\App\Post::class, 'toilet_id', 'id');
+        return $this->hasMany(\App\Post::class);
     }
 
 }

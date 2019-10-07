@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Toilet;
+use App\Post;
 use Illuminate\Http\Request;
 
 class toiletcontroller extends Controller
@@ -14,7 +15,7 @@ class toiletcontroller extends Controller
      */
     public function index()
     {
-        $toilets = Toilet::all();
+        $toilets = Toilet::orderBy('created_at', 'desc')->get();
 
         // dd($toilets);
         return view('toilets.index', ['toilets' => $toilets]);
@@ -54,8 +55,9 @@ class toiletcontroller extends Controller
     public function show($id)
     {
         $toilet = Toilet::all()->where('id', $id)->first();
+        $posts = Post::all()->where('toilet_id', $id)->sortByDesc('created_at');
 
-        return view('toilets.show', ['toilet'=>$toilet]);
+        return view('toilets.show', ['toilet'=>$toilet], ['posts'=>$posts]);
     }
 
     /**

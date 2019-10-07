@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Toilet;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostRequest;
 
@@ -52,26 +53,34 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        if($request->file('toilet_image_name')->isValid()){
-            
-            // dd($request->file('toilet_image_name'));
+        // dd($request);
+        if(isset($request)) {
             $post = new Post;
             // $input = $request->only($post->getFillable());
             $post->closet_bowl_number = $request->closet_bowl_number;
             $post->beautifulness = $request->beautifulness;
             $post->quickly_enter = $request->quickly_enter;
             $post->distance = $request->distance;
-            
-            $filename = $request->file('toilet_image_name')->store('public/image');
+            $post->user_id = $request->user_id;
+            $post->toilet_id = $request->toilet_id;
 
-            $post->toilet_image_name = basename($filename);
-
+            if($request->file('toilet_image_name') !== null) {
+                if($request->file('toilet_image_name')->isValid()){
+                    $filename = $request->file('toilet_image_name')->store('public/image');
+                    $post->toilet_image_name = basename($filename);
+                }
+            }
             // dd($post);
             $post->save();
-
         }
 
-        return redirect('posts');
+        $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
+        $posts = Post::all()->where('toilet_id', $request->toilet_id)->sortByDesc('created_at');
+        // ポスト全部取得
+        // dd($posts);
+        // $posts
+            // dd($request->file('toilet_image_name'));
+            return view('toilets.show', ['posts'=>$posts], ['toilet'=>$toilet]);
     }
 
     /**
@@ -84,7 +93,9 @@ class PostsController extends Controller
     {
         // $post = Post::all();
 
-        // return view('posts.show', ['post'=>$post]);
+        $posts = Post::all()->where('id', $id)->first();
+
+        return view('toilets.show', ['posts'=>$posts]);
     }
 
     /**

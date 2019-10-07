@@ -18,10 +18,8 @@
 Route::resource('posts', 'PostsController');
 Route::resource('toilet', 'ToiletController');
 Route::resource('totalization', 'TotalizationController');
-
 Auth::routes();
-
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'ToiletController@index');
 
 // Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
 
@@ -36,6 +34,4 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // //logoutのルーティング
 // Route::get('/logout', 'OAuthController@logout');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
