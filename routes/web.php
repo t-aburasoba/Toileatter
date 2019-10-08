@@ -11,6 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('mypage');
+// });
+
+Route::resource('posts', 'PostsController');
+Route::resource('toilet', 'ToiletController');
+Route::resource('totalization', 'TotalizationController');
+Route::resource('mypage', 'MypageController');
+Auth::routes();
+Route::get('/', 'MypageController@index');
+
+// Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
+
+// //ログイン認証するためのルーティング
+// Route::get('/oauth', 'OAuthController@login');
+
+// //Callback用のルーティング
+// Route::get('/callback', 'OAuthController@callBack');
+
+// //indexのルーティング
+// Route::get('/index', 'OAuthController@index');
+
+// //logoutのルーティング
+// Route::get('/logout', 'OAuthController@logout');
+
