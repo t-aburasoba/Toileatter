@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Toilet;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostRequest;
 
@@ -75,12 +76,13 @@ class PostsController extends Controller
         }
 
         $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
+        $user = User::all()->where('id', $post->user_id)->first();
         $posts = Post::all()->where('toilet_id', $request->toilet_id)->sortByDesc('created_at');
         // ポスト全部取得
-        // dd($posts);
+        // dd($user);
         // $posts
             // dd($request->file('toilet_image_name'));
-            return view('toilets.show', ['posts'=>$posts], ['toilet'=>$toilet]);
+            return view('toilets.show', ['posts'=>$posts], ['toilet'=>$toilet], ['user'=>$user]);
     }
 
     /**

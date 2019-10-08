@@ -15,8 +15,14 @@ class CreateStationsTable extends Migration
     {
         Schema::create('stations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('route_id');
             $table->string('name', 30);
             $table->timestamps();
+
+            $table->foreign('route_id')
+                ->references('id')
+                ->on('routes')
+                ->onDelete('cascade');
         });
     }
 

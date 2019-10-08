@@ -18,8 +18,9 @@
 Route::resource('posts', 'PostsController');
 Route::resource('toilet', 'ToiletController');
 Route::resource('totalization', 'TotalizationController');
+Route::resource('mypage', 'MypageController');
 Auth::routes();
-Route::get('/', 'ToiletController@index');
+Route::get('/', 'MypageController@index');
 
 // Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
 

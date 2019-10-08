@@ -30,12 +30,12 @@
                 
                 @foreach ($posts as $post)
                 <div class="col-md-4">
-                    <img src="..." class="card-img" alt="ユーザー画像">
+                    <img src=" {{ asset('storage/image/'.$post->toilet_image_name) }}" class="card-img" alt="トイレ画像" style="object-fit: cover; height: 180px; width: 180px;">
                     {{-- $post->user->img --}}
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">ユーザー名</h5>
+                        <h5 class="card-title">{{$post->user->name}}</h5>
                         <p class="card-text"> 個室の数：{{$post->closet_bowl_number}} </p>
                         <p class="card-text"> 綺麗ですか：{{$post->beautifulness}} </p>
                         <p class="card-text"> 並びましたか：{{$post->quickly_enter}} </p>

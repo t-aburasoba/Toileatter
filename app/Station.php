@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Station extends Model
 {
+    protected $fillable = [
+        'name',
+        'route_id'
+    ];
+
     public function toilet(){
         return $this->hasMany('\App\Toilet');
     }

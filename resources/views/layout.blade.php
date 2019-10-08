@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+{{-- <!DOCTYPE HTML>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -14,4 +14,4 @@
         @yield('content')
     </div>
 </body>
-</html>
+</html> --}}

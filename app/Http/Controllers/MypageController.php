@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Toilet;
-use App\Post;
 use Illuminate\Http\Request;
+use App\Station;
 
-class toiletcontroller extends Controller
+class MypageController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
      * @return void
      */
     public function __construct()
@@ -23,15 +24,10 @@ class toiletcontroller extends Controller
      */
     public function index()
     {
-        $toilets = Toilet::orderBy('created_at', 'desc')->get();
-        // $posts = Post::orderBy('created_at', 'desc')->get();
-        // dd($toilets);
+        $stations = Station::all();
+
         // dd($posts);
-        return view('toilets.index', ['toilets' => $toilets]);
-
-
-        // $posts = DB::select('select * from toilets');
-        // return view('posts.index', ['posts'=> $posts]);
+        return view('mypage', ['stations' => $stations]);
     }
 
     /**
@@ -63,10 +59,7 @@ class toiletcontroller extends Controller
      */
     public function show($id)
     {
-        $toilet = Toilet::all()->where('id', $id)->first();
-        $posts = Post::all()->where('toilet_id', $id)->sortByDesc('created_at');
-
-        return view('toilets.show', ['toilet'=>$toilet], ['posts'=>$posts]);
+        //
     }
 
     /**

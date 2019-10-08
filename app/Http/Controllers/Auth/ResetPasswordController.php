@@ -25,10 +25,10 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/home';
-    protected function redirectTo(){
-        return route('toilet.index');
-    }
+    protected $redirectTo = '/mypage';
+    // protected function redirectTo(){
+    //     return route('toilet.index');
+    // }
 
     /**
      * Create a new controller instance.

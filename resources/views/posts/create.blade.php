@@ -21,18 +21,6 @@
       <input type="file" class="form-control-file" id="exampleFormControlFile1" name="toilet_image_name">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlSelect1">路線名</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>山手線</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">駅名</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-        <option selected="">  </option>
-    </select>
-  </div>
-  <div class="form-group">
     <label for="exampleFormControlSelect1">個室の数</label>
     <select class="form-control" id="exampleFormControlSelect1" name="closet_bowl_number">
         <option selected="">選択する</option>

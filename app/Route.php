@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Route extends Model
 {
+    protected $fillable = [
+        'name',
+    ];
+
     public function station(){
         return $this->hasMany('App\Station');
     }

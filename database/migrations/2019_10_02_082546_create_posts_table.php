@@ -28,6 +28,11 @@ class CreatePostsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+
+            $table->foreign('toilet_id')
+                ->references('id')
+                ->on('toilets')
+                ->onDelete('cascade');
         });
     }
 
