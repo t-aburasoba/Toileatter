@@ -107,9 +107,12 @@ class PostsController extends Controller
             $quickly_enter = Post::all()->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'はい')->count();
             $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
             $array_beautifulness = Post::all()->where('toilet_id', $post->toilet_id)->mode('beautifulness');
-            $beautifulness = implode($array_beautifulness);
+            $array_beautifulness_rand = array_rand($array_beautifulness,1);
+            $beautifulness = $array_beautifulness[$array_beautifulness_rand];
             $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
-            $distance = implode($array_distance);
+            $array_distance_rand = array_rand($array_distance,1);
+            $distance = $array_distance[$array_distance_rand];
+            dd($distance);
             $probability_enter = round($quickly_enter / $total_users * 100);
 
             $totalization=Totalization::updateOrCreate([

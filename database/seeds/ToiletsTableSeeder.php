@@ -19,6 +19,7 @@ class ToiletsTableSeeder extends Seeder
             'latitude'=>'135',
             'longtitude' => '45',
             'station_id' => '2',
+            'totalization_id' => '1',
             ],
 
             ['toilet_name' => '新宿駅西口',
@@ -27,6 +28,7 @@ class ToiletsTableSeeder extends Seeder
             'latitude'=>'135',
             'longtitude' => '45',
             'station_id' => '3',
+            'totalization_id' => '2',
             ],
 
             ['toilet_name' => '田町駅',
@@ -35,6 +37,7 @@ class ToiletsTableSeeder extends Seeder
             'latitude'=>'135',
             'longtitude' => '45',
             'station_id' => '1',
+            'totalization_id' => '3',
             ],
 
             ['toilet_name' => '上野駅東口',
@@ -43,6 +46,7 @@ class ToiletsTableSeeder extends Seeder
             'latitude'=>'135',
             'longtitude' => '45',
             'station_id' => '4',
+            'totalization_id' => '4',
             ],
 
         ]);

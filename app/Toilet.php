@@ -13,6 +13,7 @@ class Toilet extends Model
         'latitude',
         'longtitude',
         'station_id',
+        'totalization_id'
     ];
 
     public function scopePublished($query){
@@ -20,7 +21,7 @@ class Toilet extends Model
     }
 
     public function totalization(){
-        return $this->hasOne('\App\Totalization');
+        return $this->belongsTo('\App\Totalization');
     }
 
     public function station(){
