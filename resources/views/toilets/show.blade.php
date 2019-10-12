@@ -30,7 +30,7 @@
                 
                 @foreach ($posts as $post)
                 <div class="col-md-4">
-                    <img src=" {{ asset('storage/image/'.$post->toilet_image_name) }}" class="card-img" alt="トイレ画像" style="object-fit: cover; height: 180px; width: 180px;">
+                    <img src=" {{ asset('storage/image/'.Auth::user()->user_image) }} " class="card-img-top" alt="あなたの画像" style="object-fit: cover; height: 180px; width: 180px;">
                     {{-- $post->user->img --}}
                 </div>
                 <div class="col-md-8">

@@ -6,8 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Toilet extends Model
 {
-    protected $guarded = [
-        'id',
+    protected $fillable = [
+        'toilet_name',
+        'closet_bowl_number',
+        'toilet_image_name',
+        'latitude',
+        'longtitude',
+        'station_id',
     ];
 
     public function scopePublished($query){
@@ -15,7 +20,7 @@ class Toilet extends Model
     }
 
     public function totalization(){
-        return $this->belongsTo('\App\Totalization');
+        return $this->hasOne('\App\Totalization');
     }
 
     public function station(){

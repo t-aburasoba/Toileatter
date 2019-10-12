@@ -19,8 +19,10 @@ Route::resource('posts', 'PostsController');
 Route::resource('toilet', 'ToiletController');
 Route::resource('totalization', 'TotalizationController');
 Route::resource('mypage', 'MypageController');
+Route::resource('user', 'UsersController');
 Auth::routes();
 Route::get('/', 'MypageController@index');
+Route::POST('/search', 'PostsController@search')->name('posts.search');
 
 // Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
 

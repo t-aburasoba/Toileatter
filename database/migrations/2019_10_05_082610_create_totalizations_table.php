@@ -15,10 +15,19 @@ class CreateTotalizationsTable extends Migration
     {
         Schema::create('totalizations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('evaluation');
+            $table->unsignedBigInteger('toilet_id');
+            $table->integer('evaluation')->nullable();
             $table->integer('total_users');
             $table->integer('probability_enter');
             $table->timestamps();
+            $table->string('beautifulness',30);
+            $table->string('distance',30);
+
+            $table->foreign('toilet_id')
+            ->references('id')
+            ->on('toilets')
+            ->onDelete('cascade');
+
         });
     }
 

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Station;
+use App\Route;
+use App\User;
+use App\Post;
+use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
@@ -25,9 +29,13 @@ class MypageController extends Controller
     public function index()
     {
         $stations = Station::all();
+        $routes = Route::all();
+        $posts = Post::all()->where('user_id', $id = Auth::id());
+
+    // dd($auths);
 
         // dd($posts);
-        return view('mypage', ['stations' => $stations]);
+        return view('mypage', ['stations' => $stations, 'posts'=>$posts, 'routes' => $routes]);
     }
 
     /**
@@ -48,7 +56,7 @@ class MypageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

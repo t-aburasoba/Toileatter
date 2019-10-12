@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Totalization;
+use App\Post;
+use App\Toilet;
 use Illuminate\Support\Facades\DB;
 
 class Totalizationcontroller extends Controller
@@ -16,7 +18,10 @@ class Totalizationcontroller extends Controller
     public function index()
     {
         $totalizations = Totalization::all();
-        // dd($totalizations);
+        $toilet = Toilet::
+        // $posts = Post::all()->where('toilet_id', $toilet->id);
+
+        dd($totalizations);
         return view('mypage', ['totalizations'=>$totalizations]);
     }
 
@@ -49,7 +54,7 @@ class Totalizationcontroller extends Controller
      */
     public function show($id)
     {
-        $totalization = Totalization::all()->where('id', $id)->first();
+        $totalization = Totalization::all()->where('id', $id);
 
         return view('totalizations.show', ['totalization'=>$totalization]);
     }

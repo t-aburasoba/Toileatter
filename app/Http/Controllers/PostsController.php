@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Toilet;
 use App\User;
+use App\Totalization;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostRequest;
 
@@ -62,7 +63,7 @@ class PostsController extends Controller
             $post->beautifulness = $request->beautifulness;
             $post->quickly_enter = $request->quickly_enter;
             $post->distance = $request->distance;
-            $post->user_id = $request->user_id;
+            $post->user_id = $request->user_id; 
             $post->toilet_id = $request->toilet_id;
 
             if($request->file('toilet_image_name') !== null) {
@@ -73,16 +74,61 @@ class PostsController extends Controller
             }
             // dd($post);
             $post->save();
+
         }
 
-        $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
-        $user = User::all()->where('id', $post->user_id)->first();
-        $posts = Post::all()->where('toilet_id', $request->toilet_id)->sortByDesc('created_at');
+        // $request->session()->regenerateToken();
         // ポスト全部取得
         // dd($user);
         // $posts
             // dd($request->file('toilet_image_name'));
-            return view('toilets.show', ['posts'=>$posts], ['toilet'=>$toilet], ['user'=>$user]);
+//             $totalization = Totalization::findOrFail('toilet_id' ,$request->toilet_id);
+// dd($totalization);
+//             $totalization->delete();
+
+//             // $totalization = new Totalization;
+
+//             $total1 = Post::all()->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'はい')->count();
+//             $total2 = Post::all()->where('toilet_id', $post->toilet_id)->count();
+//             $total3 = Post::all()->where('toilet_id', $post->toilet_id)->mode('beautifulness');
+//             $total6 = implode($total3);
+//             $total4 = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
+//             $total7 = implode($total4);
+//             $total5 = round($total1 / $total2 * 100);
+
+//             $totalization->probability_enter = $total5;
+//             $totalization->total_users = $total2;
+//             $totalization->beautifulness = $total6; 
+//             $totalization->distance = $total7;
+//             $totalization->toilet_id = $request->toilet_id;
+
+            // dd($totalization);
+
+            $quickly_enter = Post::all()->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'はい')->count();
+            $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
+            $array_beautifulness = Post::all()->where('toilet_id', $post->toilet_id)->mode('beautifulness');
+            $beautifulness = implode($array_beautifulness);
+            $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
+            $distance = implode($array_distance);
+            $probability_enter = round($quickly_enter / $total_users * 100);
+
+            $totalization=Totalization::updateOrCreate([
+                'toilet_id' => $post->toilet_id
+            ], [
+                'probability_enter' => $probability_enter,
+                'total_users' => $total_users,
+                'beautifulness' => $beautifulness,
+                'distance' => $distance,
+                'toilet_id' => $request->toilet_id
+            ]);
+
+            $totalization->save();
+
+            $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
+            $user = User::all()->where('id', $post->user_id)->first();
+            $posts = Post::all()->where('toilet_id', $request->toilet_id)->sortByDesc('created_at');
+
+            return redirect(route('toilet.show', $post->toilet_id, ['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user]));
     }
 
     /**
@@ -141,6 +187,24 @@ class PostsController extends Controller
 
         $post->delete();
 
-        return redirect('posts');
+        return redirect('mypage');
     }
+
+    public function search(Request $request)
+    {
+        // dd($request->search);
+        // $toilets = Toilet::where('toilet_name', ($request->search))->get();
+        // dd($toilets);
+
+        $toilets = DB::table('toilets')
+                    ->where('toilet_name', 'like', '%' . $request->search . '%')->get();
+                    // dd($toilets);
+        $search_result = '「'.$request->search.'」の検索結果'.count($toilets).'件';
+
+        return view('toilets.index', [
+            'toilets' => $toilets,
+            'search_result' => $search_result,
+            ]);
+    }
+    
 }

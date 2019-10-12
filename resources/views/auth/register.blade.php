@@ -52,6 +52,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a class="btn btn-primary" href="{{route('toilet.index')}}" role="button">あとで登録する</a>
                             </div>
                         </div>
                     </form>

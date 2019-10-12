@@ -17,11 +17,19 @@ class StationsTableSeeder extends Seeder
             'route_id'=> '1',
             ],
 
-            ['name' => '神田',
+            ['name' => '秋葉原',
             'route_id'=> '1',
             ],
 
-            ['name' => '渋谷',
+            ['name' => '新宿',
+            'route_id'=> '1',
+            ],
+
+            ['name' => '上野',
+            'route_id'=> '1',
+            ],
+
+            ['name' => '東京',
             'route_id'=> '1',
             ],
 

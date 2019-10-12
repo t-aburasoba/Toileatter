@@ -2,22 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Toilet;
-use App\Post;
-use App\Station;
-use App\Totalization;
 use Illuminate\Http\Request;
+use App\Http\Requests\UsersRequest;
+use App\User;
 
-class toiletcontroller extends Controller
+
+class UsersController extends Controller
 {
-    /**
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth')
-            ->except(['index']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -25,16 +16,7 @@ class toiletcontroller extends Controller
      */
     public function index()
     {
-        $toilets = Toilet::orderBy('created_at', 'desc')->get();
-        $stations = Station::all();
-        $totalizations = Totalization::all();
-        // dd($totalizations);
-        
-        return view('toilets.index', ['toilets' => $toilets, 'stations' => $stations, 'totalizations' => $totalizations]);
-
-
-        // $posts = DB::select('select * from toilets');
-        // return view('posts.index', ['posts'=> $posts]);
+        //
     }
 
     /**
@@ -66,10 +48,7 @@ class toiletcontroller extends Controller
      */
     public function show($id)
     {
-        $toilet = Toilet::all()->where('id', $id)->first();
-        $posts = Post::all()->where('toilet_id', $id)->sortByDesc('created_at');
-
-        return view('toilets.show', ['toilet'=>$toilet], ['posts'=>$posts]);
+        //
     }
 
     /**
@@ -80,7 +59,9 @@ class toiletcontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('/', compact('profile'));
     }
 
     /**
@@ -90,9 +71,20 @@ class toiletcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->update($request->validated());
+
+        if($request->file('user_image') !== null) {
+            if($request->file('user_image')->isValid()){
+                $filename = $request->file('user_image')->store('public/image');
+                $user->user_image = basename($filename);
+            }  
+        }
+        $user->save();
+
+        return redirect(url('/'));
     }
 
     /**

@@ -11,7 +11,7 @@ class Post extends Model
 
     protected $fillable = [
         'closet_bowl_number',
-        // 'toilet_image_name',
+        'toilet_image_name',
         'beautifulness',
         'quickly_enter',
         'distance',

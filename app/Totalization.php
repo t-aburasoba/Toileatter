@@ -6,12 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Totalization extends Model
 {
-    protected $guarded = [
-        'id',
+    protected $fillable = [
+
+        'probability_enter',
+        'total_users',
+        'beautifulness',
+        'distance',
+        'evaluation',
+        'toilet_id',
+
     ];
 
     public function toilet(){
-        return $this->hasone('\App\Toilet');
+        return $this->belongsTo('\App\Toilet');
     }
 
     public function post(){
