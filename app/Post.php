@@ -17,6 +17,7 @@ class Post extends Model
         'distance',
         'user_id',
         'toilet_id',
+        'totalization_id',
     ];
 
     public function totalization(){

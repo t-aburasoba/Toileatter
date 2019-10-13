@@ -16,7 +16,6 @@ class CreateToiletsTable extends Migration
         Schema::create('toilets', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('station_id');
-            $table->unsignedBigInteger('totalization_id');
             $table->string('toilet_name', 30);
             $table->integer('closet_bowl_number');
             $table->string('toilet_image_name', 30)->nullable();
@@ -30,10 +29,6 @@ class CreateToiletsTable extends Migration
                 ->on('stations')
                 ->onDelete('cascade');
 
-            $table->foreign('totalization_id')
-                ->references('id')
-                ->on('totalizations')
-                ->onDelete('cascade');
         });
     }
 

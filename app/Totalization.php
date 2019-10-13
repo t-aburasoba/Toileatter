@@ -18,7 +18,7 @@ class Totalization extends Model
     ];
 
     public function toilet(){
-        return $this->hasOne('\App\Toilet');
+        return $this->belongsTo('\App\Toilet');
     }
 
     public function post(){

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-    <div class="container">
+    <div class="container" style="background-image : url(storage/img/)">
         @section('content')
         <div class="user_id">
         </div>
@@ -47,10 +47,10 @@
                                 <div class="col-lg-8">
                                     <div class="ui-select">
                                         <select id="often_route" class="form-control" name="often_route">
-                                            <option selected="">{{Auth::user()->often_route}}</option>
+                                            <option selected="" value="{{Auth::user()->often_route}}">{{Auth::user()->often_route}}</option>
                                                 @foreach ($routes as $route)
                                                     @if (Auth::user()->often_route != $route->name)
-                                                        <option value="1">{{$route->name}}</option>
+                                                        <option value="{{$route->name}}">{{$route->name}}</option>
                                                     @endif
                                                 @endforeach
                                         </select>
@@ -63,10 +63,10 @@
                                 <div class="col-lg-8">
                                     <div class="ui-select">
                                         <select id="often_station" class="form-control" name="often_station">
-                                            <option selected="">{{Auth::user()->often_station}}</option>
+                                            <option selected="" value="{{Auth::user()->often_station}}">{{Auth::user()->often_station}}</option>
                                             @foreach ($stations as $station)
                                                 @if (Auth::user()->often_station != $station->name)
-                                                    <option value="1">{{$station->name}}</option>
+                                                    <option value="{{$station->name}}">{{$station->name}}</option>
                                                 @endif
                                             @endforeach
                                         </select>
@@ -78,20 +78,20 @@
                                 <label class="col-lg-3 control-label">Gender:</label>
                                 <div class="col-md-6" style="padding-top: 8px">
                                     @if (Auth::user()->gender == "Male")
-                                        <input id="male" type="radio" name="gender" value="male" checked="checked">
-                                        <label for="male">Male</label>
-                                        <input id="female" type="radio" name="gender" value="female">
-                                        <label for="female">Female</label>
+                                        <input id="male" type="radio" name="gender" value="Male" checked="checked">Male
+                                        {{-- <label for="male">Male</label> --}}
+                                        <input id="female" type="radio" name="gender" value="Female">Female
+                                        {{-- <label for="female">Female</label> --}}
                                     @elseif (Auth::user()->gender == "Female")
-                                        <input id="male" type="radio" name="gender" value="male">
-                                        <label for="male">Male</label>
-                                        <input id="female" type="radio" name="gender" value="female" checked="checked">
-                                        <label for="female">Female</label>
+                                        <input id="male" type="radio" name="gender" value="Male">Male
+                                        {{-- <label for="male">Male</label> --}}
+                                        <input id="female" type="radio" name="gender" value="Female" checked="checked">Female
+                                        {{-- <label for="female">Female</label> --}}
                                     @else
-                                        <input id="male" type="radio" name="gender" value="male">
-                                        <label for="male">Male</label>
-                                        <input id="female" type="radio" name="gender" value="female">
-                                        <label for="female">Female</label>
+                                        <input id="male" type="radio" name="gender" value="Male">Male
+                                        {{-- <label for="male">Male</label> --}}
+                                        <input id="female" type="radio" name="gender" value="Female">Female
+                                        {{-- <label for="female">Female</label> --}}
                                     @endif
                                     @if ($errors->has('gender'))
                                         <span class="invalid-feedback">

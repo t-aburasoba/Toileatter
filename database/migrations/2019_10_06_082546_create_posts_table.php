@@ -33,6 +33,7 @@ class CreatePostsTable extends Migration
                 ->references('id')
                 ->on('toilets')
                 ->onDelete('cascade');
+
         });
     }
 

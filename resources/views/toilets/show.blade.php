@@ -10,15 +10,21 @@
                 <a href="#" class="d-block mb-4 h-100">
                     {{-- @if(isset($post->toilet_image)){ --}}
                     @foreach ($posts as $post)
+                    
                         @if($post->toilet_image_name !== null)
                             <img src=" {{ asset('storage/image/'.$post->toilet_image_name) }} " class="card-img-top" alt="トイレの画像"style="object-fit: cover; height: 400px; width: 400px;">
                         @endif
                     @endforeach
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $toilet->toilet_name }}</h5>
-                        <p class="card-text">個室の数（管理者調べ）：{{ $toilet->closet_bowl_number }}</p>
+                        <p class="card-text">個室の数<br>（コメント平均）：{{ $toilet->closet_bowl_number }}</p>
                         <p class="card-text">緯度：{{ $toilet->latitude }}</p>
                         <p class="card-text">経度：{{ $toilet->longtitude }}</p>
+                        <p class="card-text">すぐ入れる確率：{{ $totalization->probability_enter }}％</p>
+                        <p class="card-text">総チェック数：{{ $totalization->total_users }}件</p>
+                        <p class="card-text">綺麗さ：{{ $totalization->beautifulness }}</p>
+                        <p class="card-text">ホームから：{{ $totalization->distance }}</p>
                     </div>
                 </a>
                 <a class="btn btn-primary" href=" {{route('posts.create', ['toilet_id' => $toilet->id])}} ">Checkin コメントする</a>

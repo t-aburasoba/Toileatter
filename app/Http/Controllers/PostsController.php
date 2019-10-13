@@ -7,6 +7,7 @@ use App\Post;
 use App\Toilet;
 use App\User;
 use App\Totalization;
+use App\Station;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostRequest;
 
@@ -104,7 +105,7 @@ class PostsController extends Controller
 
             // dd($totalization);
 
-            $quickly_enter = Post::all()->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'はい')->count();
+            $quickly_enter = Post::all()->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'いいえ')->count();
             $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
             $array_beautifulness = Post::all()->where('toilet_id', $post->toilet_id)->mode('beautifulness');
             $array_beautifulness_rand = array_rand($array_beautifulness,1);
@@ -112,7 +113,6 @@ class PostsController extends Controller
             $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
             $array_distance_rand = array_rand($array_distance,1);
             $distance = $array_distance[$array_distance_rand];
-            dd($distance);
             $probability_enter = round($quickly_enter / $total_users * 100);
 
             $totalization=Totalization::updateOrCreate([
@@ -131,7 +131,7 @@ class PostsController extends Controller
             $user = User::all()->where('id', $post->user_id)->first();
             $posts = Post::all()->where('toilet_id', $request->toilet_id)->sortByDesc('created_at');
 
-            return redirect(route('toilet.show', $post->toilet_id, ['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user]));
+            return redirect(route('toilet.show', $post->toilet_id, ['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization]));
     }
 
     /**
@@ -146,7 +146,6 @@ class PostsController extends Controller
 
         $posts = Post::all()->where('id', $id)->first();
 
-        return view('toilets.show', ['posts'=>$posts]);
     }
 
     /**
@@ -199,10 +198,15 @@ class PostsController extends Controller
         // $toilets = Toilet::where('toilet_name', ($request->search))->get();
         // dd($toilets);
 
-        $toilets = DB::table('toilets')
+        $toilets = Toilet::query()
                     ->where('toilet_name', 'like', '%' . $request->search . '%')->get();
                     // dd($toilets);
         $search_result = '「'.$request->search.'」の検索結果'.count($toilets).'件';
+
+        // $stations = Station::all();
+        // $totalizations = Totalization::all();
+        // dd($totalizations);
+        // dd($search_result);
 
         return view('toilets.index', [
             'toilets' => $toilets,

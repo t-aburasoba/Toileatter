@@ -68,8 +68,9 @@ class toiletcontroller extends Controller
     {
         $toilet = Toilet::all()->where('id', $id)->first();
         $posts = Post::all()->where('toilet_id', $id)->sortByDesc('created_at');
+        $totalization = Totalization::all()->where('toilet_id', $id)->first();
 
-        return view('toilets.show', ['toilet'=>$toilet], ['posts'=>$posts]);
+        return view('toilets.show', ['toilet'=>$toilet,'posts'=>$posts, 'totalization'=>$totalization]);
     }
 
     /**

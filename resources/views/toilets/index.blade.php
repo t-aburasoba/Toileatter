@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
-    <div class="container">
+    <div class="container" >
         @section('content')
+
+        {{-- @foreach ($routes as $route)
+            
+
+
+        @endforeach --}}
 
             <h2 class="font-weight-light text-center text-lg-left mt-4 mb-0">山手線トイレ</h2>        
             <hr class="mt-2 mb-5">

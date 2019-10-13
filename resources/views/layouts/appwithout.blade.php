@@ -31,28 +31,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="container">
-                    <br/>
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-md-10 col-lg-8">
-                            <form class="card card-sm" action="{{route('posts.search')}}" method="POST">
-                            {{csrf_field()}}
-                                <div class="card-body row no-gutters align-items-center">
-                                    <div class="col">
-                                        <input class="form-control form-control-sm form-control-borderless" name="search" placeholder="Search topics or keywords">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col-auto">
-                                        <button class="btn btn-sm btn-primary" type="submit">Search</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
-                        </div>
-                                        <!--end of col-->
-                    </div>
-                </div>
-
     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">使い方</button>
 
     <!-- Modal -->
