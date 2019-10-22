@@ -146,8 +146,9 @@
                     <!-- Footer -->
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDadRHjc1ueE4tXomJaEVxHIcsVR83eqyc&callback=initMap"
-    async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_API_KEY') }}&callback=initMap"async defer></script>
+
+    
 
 </body>
 </html>

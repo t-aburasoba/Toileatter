@@ -40,4 +40,8 @@ return [
         'redirect' => env('TWITTER_CLIENT_CALLBACK')
     ],
 
+    'google' => [
+        'api_key'=> env('GOOGLE_MAP_API_KEY'),
+    ],
+
 ];
