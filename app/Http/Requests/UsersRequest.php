@@ -28,8 +28,12 @@ class UsersRequest extends FormRequest
             'gender'=>'nullable',
             'created_at'=>'nullable',
             'updated_at'=>'nullable',
-            'often_station'=>'nullable',
+            'station_id'=>'nullable',
+            'route_id'=>'nullable',
             'user_image'=>'nullable',
+            'nickname' => 'nullable', 
+            'twitter_id' => 'nullable',
+            'avatar' => 'nullable',
         ];
     }
 }

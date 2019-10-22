@@ -9,7 +9,7 @@
         <div class="row text-center text-lg-left">
                 
             <div class="col-lg-3 col-md-4 col-6">
-                <a href="#" class="d-block mb-4 h-100">
+                <a href="#" class="d-block mb-4">
                     <img src="..." class="card-img-top" alt="トイレの画像">
                     <div class="card-body">
                         <h5 class="card-title">個室の数：{{$totalization->evaluation}}</h5>

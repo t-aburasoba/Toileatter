@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Toilet;
-use App\User;
+use App\Models\User;
 use App\Totalization;
 use App\Station;
 use Illuminate\Support\Facades\DB;
@@ -56,7 +56,6 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-        // dd($request);
         if(isset($request)) {
             $post = new Post;
             // $input = $request->only($post->getFillable());
@@ -66,6 +65,7 @@ class PostsController extends Controller
             $post->distance = $request->distance;
             $post->user_id = $request->user_id; 
             $post->toilet_id = $request->toilet_id;
+            $post->gender = $request->gender;
 
             if($request->file('toilet_image_name') !== null) {
                 if($request->file('toilet_image_name')->isValid()){
@@ -105,25 +105,81 @@ class PostsController extends Controller
 
             // dd($totalization);
 
-            $quickly_enter = Post::all()->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'いいえ')->count();
-            $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
-            $array_beautifulness = Post::all()->where('toilet_id', $post->toilet_id)->mode('beautifulness');
-            $array_beautifulness_rand = array_rand($array_beautifulness,1);
-            $beautifulness = $array_beautifulness[$array_beautifulness_rand];
-            $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
-            $array_distance_rand = array_rand($array_distance,1);
-            $distance = $array_distance[$array_distance_rand];
-            $probability_enter = round($quickly_enter / $total_users * 100);
 
-            $totalization=Totalization::updateOrCreate([
-                'toilet_id' => $post->toilet_id
-            ], [
-                'probability_enter' => $probability_enter,
-                'total_users' => $total_users,
-                'beautifulness' => $beautifulness,
-                'distance' => $distance,
-                'toilet_id' => $request->toilet_id
-            ]);
+            if($post->gender == 'Male'){
+
+                $quickly_enter = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'いいえ')->count();
+                $total_users_gender = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->count();
+                $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
+                $array_beautifulness = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->mode('beautifulness');
+                $array_beautifulness_rand = array_rand($array_beautifulness,1);
+                $beautifulness_male = $array_beautifulness[$array_beautifulness_rand];
+                $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
+                $array_distance_rand = array_rand($array_distance,1);
+                $distance = $array_distance[$array_distance_rand];
+                $probability_enter_male = round($quickly_enter / $total_users * 100);
+                $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
+                $number_sum = array_sum($number);
+                $number_male = $number_sum / $total_users_gender;
+    
+                $totalization=Totalization::updateOrCreate([
+                    'toilet_id' => $post->toilet_id
+                ], [
+                    'probability_enter_male' => $probability_enter_male,
+                    'total_users' => $total_users,
+                    'beautifulness_male' => $beautifulness_male,
+                    'distance' => $distance,
+                    'toilet_id' => $request->toilet_id,
+                    'number_male' => $number_male
+                ]);
+
+            }else{
+
+                $quickly_enter = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'いいえ')->count();
+                $total_users_gender = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->count();
+                $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
+                $array_beautifulness = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->mode('beautifulness');
+                $array_beautifulness_rand = array_rand($array_beautifulness,1);
+                $beautifulness_female = $array_beautifulness[$array_beautifulness_rand];
+                $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
+                $array_distance_rand = array_rand($array_distance,1);
+                $distance = $array_distance[$array_distance_rand];
+                $probability_enter_female = round($quickly_enter / $total_users * 100);
+                $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
+                $number_sum = array_sum($number);
+                $number_female = $number_sum / $total_users_gender;
+    
+                $totalization=Totalization::updateOrCreate([
+                    'toilet_id' => $post->toilet_id
+                ], [
+                    'probability_enter_female' => $probability_enter_female,
+                    'total_users' => $total_users,
+                    'beautifulness_female' => $beautifulness_female,
+                    'distance' => $distance,
+                    'toilet_id' => $request->toilet_id,
+                    'number_female' => $number_female
+                ]);
+            }
+
+            // $quickly_enter = Post::all()->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'いいえ')->count();
+            // $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
+            // $array_beautifulness = Post::all()->where('toilet_id', $post->toilet_id)->mode('beautifulness');
+            // $array_beautifulness_rand = array_rand($array_beautifulness,1);
+            // $beautifulness = $array_beautifulness[$array_beautifulness_rand];
+            // $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
+            // $array_distance_rand = array_rand($array_distance,1);
+            // $distance = $array_distance[$array_distance_rand];
+            // $probability_enter = round($quickly_enter / $total_users * 100);
+
+            // $totalization=Totalization::updateOrCreate([
+            //     'toilet_id' => $post->toilet_id
+            // ], [
+            //     'probability_enter' => $probability_enter,
+            //     'total_users' => $total_users,
+            //     'beautifulness' => $beautifulness,
+            //     'distance' => $distance,
+            //     'toilet_id' => $request->toilet_id
+            // ]);
 
             $totalization->save();
 
@@ -189,28 +245,88 @@ class PostsController extends Controller
 
         $post->delete();
 
-        return redirect('mypage');
+        if($post->gender == 'Male'){
+
+            $quickly_enter = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'いいえ')->count();
+            $total_users_gender = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->count();
+            $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
+            $array_beautifulness = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->mode('beautifulness');
+            $array_beautifulness_rand = array_rand($array_beautifulness,1);
+            $beautifulness_male = $array_beautifulness[$array_beautifulness_rand];
+            $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
+            $array_distance_rand = array_rand($array_distance,1);
+            $distance = $array_distance[$array_distance_rand];
+            $probability_enter_male = round($quickly_enter / $total_users * 100);
+            $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
+            $number_sum = array_sum($number);
+            $number_male = $number_sum / $total_users_gender;
+
+            $totalization=Totalization::updateOrCreate([
+                'toilet_id' => $post->toilet_id
+            ], [
+                'probability_enter_male' => $probability_enter_male,
+                'total_users' => $total_users,
+                'beautifulness_male' => $beautifulness_male,
+                'distance' => $distance,
+                'toilet_id' => $post->toilet_id,
+                'number_male' => $number_male
+            ]);
+
+        }else{
+
+            $quickly_enter = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->where('quickly_enter', 'いいえ')->count();
+            $total_users_gender = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->count();
+            $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
+            $array_beautifulness = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->mode('beautifulness');
+            $array_beautifulness_rand = array_rand($array_beautifulness,1);
+            $beautifulness_female = $array_beautifulness[$array_beautifulness_rand];
+            $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
+            $array_distance_rand = array_rand($array_distance,1);
+            $distance = $array_distance[$array_distance_rand];
+            $probability_enter_female = round($quickly_enter / $total_users * 100);
+            $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
+            $number_sum = array_sum($number);
+            $number_female = $number_sum / $total_users_gender;
+
+            $totalization=Totalization::updateOrCreate([
+                'toilet_id' => $post->toilet_id
+            ], [
+                'probability_enter_female' => $probability_enter_female,
+                'total_users' => $total_users,
+                'beautifulness_female' => $beautifulness_female,
+                'distance' => $distance,
+                'toilet_id' => $post->toilet_id,
+                'number_female' => $number_female
+            ]);
+        }
+
+        $totalization->save();
+
+        $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
+        $user = User::all()->where('id', $post->user_id)->first();
+        $posts = Post::all()->where('toilet_id', $post->toilet_id)->sortByDesc('created_at');
+
+        return redirect('mypage', $post->toilet_id, ['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization]);
+
+        // return redirect('mypage');
     }
 
     public function search(Request $request)
     {
-        // dd($request->search);
-        // $toilets = Toilet::where('toilet_name', ($request->search))->get();
-        // dd($toilets);
-
+        $stations = Station::all();
+        $totalizations = Totalization::all();
+        $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
         $toilets = Toilet::query()
                     ->where('toilet_name', 'like', '%' . $request->search . '%')->get();
                     // dd($toilets);
         $search_result = '「'.$request->search.'」の検索結果'.count($toilets).'件';
 
-        // $stations = Station::all();
-        // $totalizations = Totalization::all();
-        // dd($totalizations);
-        // dd($search_result);
-
         return view('toilets.index', [
             'toilets' => $toilets,
             'search_result' => $search_result,
+            'stations' => $stations, 
+            'totalizations' => $totalizations, 
+            'posts' => $posts
             ]);
     }
     

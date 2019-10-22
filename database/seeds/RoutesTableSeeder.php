@@ -12,7 +12,13 @@ class RoutesTableSeeder extends Seeder
     public function run()
     {
         DB::table('routes')->insert([
-            'name' => '山手線',
+            [
+                'name' => '山手線',
+            ],
+            [
+                'name' => '丸の内線',
+            ]
+
         ]);
     }
 }

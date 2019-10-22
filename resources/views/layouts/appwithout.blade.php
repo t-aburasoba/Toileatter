@@ -19,44 +19,42 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="app" style="background: url('storage/image/bg.png'); background-size: cover; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten; background-position:0pt -60pt;">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="position: sticky; top: 0; z-index: 2; height: 68px; background-color: transparent;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/toilet') }}">
+                <a class="navbar-brand" href="{{ url('/toilet') }}" style="font-size: 24px;">
                     Toileatter
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">使い方</button>
-
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-sm">
-
-        <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h5 class="modal-title">アプリの使い方</h5>
-                </div>
-                <div class="modal-body">
-                    <h4>登録なしのゲストユーザー</h4>
-                    <p>検索画面からトイレを検索することができます。</p>
-                    <hr>
-                    <h4>登録してくださった方</h4>
-                    <p>上記に加えて、クチコミ投稿、トイレの地図、他のユーザーのクチコミを見ることができます。</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+            <div class="modal-dialog modal-md" style="z-index:1100;">
+    
+            <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="font-size: 20px;">How to use</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body p-5" style="height: 325px;">
+                        <p><strong>登録なしのゲストユーザー</strong></p>
+                        <p>検索画面からトイレを検索することができます。</p>
+                        <hr class="my-5">
+                        <p><strong>登録してくださった方</strong></p>
+                        <p class="pb-4">上記に加えて、クチコミ投稿、トイレの地図、他のユーザーのクチコミを見ることができます。</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div> 
             </div>
-
         </div>
-    </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -69,11 +67,14 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" style="color: #eee;" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" style="color: #eee;" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                                <li class="nav-item" style="cursor: pointer;">
+                                    <a class="nav-link" style="color: #eee;" data-toggle="modal" data-target="#myModal">How to use</a>
                                 </li>
                             @endif
                         @else
@@ -101,10 +102,20 @@
             </div>
         </nav>
 
-
+<div class="bg">
+    <div class="container py-4">
+            <div class="container">
+                <div class="row justify-content-center" style="color: #eee;">
+                    <div class="col-md-8">
+                        <h3 class="text-center" style="font-size: 20px;">あなたの投稿が腹痛民を救います。</h3>
+                        <p class="text-center" style="font-size: 14px;">Toileatterで駅構内のすぐ入れるトイレを検索することができます。</p>
+                    </div>
+                </div>
+            </div>
         <div class="container py-4"> 
             @yield('content')
         </div>
     </div>
+</div>
 </body>
 </html>

@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('beautifulness',30)->default('未回答');
             $table->string('quickly_enter',30)->default('未回答');
             $table->string('distance',30)->default('未回答');
+            $table->string('gender')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

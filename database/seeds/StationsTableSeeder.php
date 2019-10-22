@@ -33,6 +33,10 @@ class StationsTableSeeder extends Seeder
             'route_id'=> '1',
             ],
 
+            ['name' => '神田',
+            'route_id'=> '1',
+            ],
+
         ]);
     }
 }

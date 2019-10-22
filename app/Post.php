@@ -18,6 +18,7 @@ class Post extends Model
         'user_id',
         'toilet_id',
         'totalization_id',
+        'gender',
     ];
 
     public function totalization(){
@@ -29,6 +30,6 @@ class Post extends Model
     }
 
     public function user(){
-        return $this->belongsTo('\App\User');
+        return $this->belongsTo('\App\Models\User');
     }
 }

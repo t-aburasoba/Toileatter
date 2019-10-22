@@ -18,9 +18,13 @@ class CreateTotalizationsTable extends Migration
             $table->unsignedBigInteger('toilet_id');
             $table->integer('evaluation')->nullable();
             $table->integer('total_users');
-            $table->integer('probability_enter');
+            $table->integer('probability_enter_male');
+            $table->integer('probability_enter_female');
+            $table->string('beautifulness_male',30)->default('未回答');
+            $table->string('beautifulness_female',30)->default('未回答');
+            $table->integer('number_male');
+            $table->integer('number_female');
             $table->timestamps();
-            $table->string('beautifulness',30);
             $table->string('distance',30);
 
             $table->foreign('toilet_id')

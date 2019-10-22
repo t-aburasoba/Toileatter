@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Station;
 use App\Route;
-use App\User;
+use App\Models\User;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
 

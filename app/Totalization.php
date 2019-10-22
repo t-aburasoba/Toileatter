@@ -8,9 +8,13 @@ class Totalization extends Model
 {
     protected $fillable = [
 
-        'probability_enter',
+        'probability_enter_male',
+        'probability_enter_female',
         'total_users',
-        'beautifulness',
+        'beautifulness_male',
+        'beautifulness_female',
+        'number_male',
+        'number_female',
         'distance',
         'evaluation',
         'toilet_id',

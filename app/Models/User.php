@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password' ,'gender' ,'often_station' ,'often_route' ,'user_image',
+        'name', 'email', 'password' ,'gender' ,'station_id' ,'route_id' ,'user_image',
     ];
 
     /**
@@ -48,4 +48,10 @@ class User extends Authenticatable
     public function route(){
         return $this->belongsTo('App\Route');
     }
+
+    public function socialUsers()
+    {
+        return $this->hasMany(SocialUser::class);
+    }
+
 }
