@@ -16,7 +16,7 @@
 // });
 
 Route::resource('posts', 'PostsController');
-Route::resource('toilet', 'ToiletController');
+Route::resource('toilet', 'Toiletcontroller');
 Route::resource('totalization', 'TotalizationController');
 Route::resource('mypage', 'MypageController');
 Route::resource('user', 'UsersController');

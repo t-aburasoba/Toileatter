@@ -8,7 +8,7 @@ use App\Station;
 use App\Totalization;
 use Illuminate\Http\Request;
 
-class toiletcontroller extends Controller
+class Toiletcontroller extends Controller
 {
     /**
      * @return void
