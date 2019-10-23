@@ -31,7 +31,7 @@
                                     <img class="img-thumbnail" src="{{ Auth::user()->avatar }}" width="200px" height="200px">
                                     <h6>こんにちは{{ Auth::user()->name }}さん<br>Twitterログインありがとう!</h6>
                                 @else
-                                    <img src=" {{ Auth::user()->user_image }} " class="card-img-top, img-thumbnail" alt="あなたの画像" style="object-fit: cover; height: 200px; width: 200px;">
+                                    <img src=" {{ Auth::user()->user_image }} " class="card-img-top, img-thumbnail" alt="{{ Auth::user()->name }}の画像" style="object-fit: cover; height: 200px; width: 200px;">
                                     <h6>Upload a different photo...</h6>
         
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1" name="user_image">

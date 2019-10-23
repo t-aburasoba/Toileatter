@@ -91,7 +91,7 @@
                         @if($post->user->avatar != null)
                         <img class="card-img-top, img-thumbnail imgavator" src="{{ $post->user->avatar }}" style="object-fit: cover; width: 40%; border-radius: 100%; position: absolute; top: 50%; left: 50%;-webkit-transform : translate(-50%,-50%); transform : translate(-50%,-50%);">
                         @else
-                        <img src=" {{ $post->user->user_image }} " class="card-img-top, img-thumbnail imgavator" alt="あなたの画像" style="object-fit: cover; width: 40%; border-radius: 100%; position: absolute; top: 50%; left: 50%;-webkit-transform : translate(-50%,-50%); transform : translate(-50%,-50%);">
+                        <img src=" {{ $post->user->user_image }} " class="card-img-top, img-thumbnail imgavator" alt="{{ $post->user->name }}の画像" style="object-fit: cover; width: 40%; border-radius: 100%; position: absolute; top: 50%; left: 50%;-webkit-transform : translate(-50%,-50%); transform : translate(-50%,-50%);">
                         @endif
                     </div>
                     <div class="col-md-8">
@@ -138,7 +138,7 @@
                         @if($post->user->avatar != null)
                         <img class="card-img-top, img-thumbnail imgavator" src="{{ $post->user->avatar }}" style="object-fit: cover; width: 40%; border-radius: 100%; position: absolute;top: 50%; left: 50%;-webkit-transform : translate(-50%,-50%);transform : translate(-50%,-50%);">
                         @else
-                        <img src=" {{ $post->user->user_image }} " class="card-img-top, img-thumbnail imgavator" alt="あなたの画像" style="object-fit: cover; width: 40%; border-radius: 100%; position: absolute; top: 50%; left: 50%;-webkit-transform : translate(-50%,-50%); transform : translate(-50%,-50%);">
+                        <img src=" {{ $post->user->user_image }} " class="card-img-top, img-thumbnail imgavator" alt="{{ $post->user->name }}の画像" style="object-fit: cover; width: 40%; border-radius: 100%; position: absolute; top: 50%; left: 50%;-webkit-transform : translate(-50%,-50%); transform : translate(-50%,-50%);">
                         @endif
                     </div>
                     <div class="col-md-8">

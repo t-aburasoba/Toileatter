@@ -114,6 +114,15 @@
             </div>
         <div class="container py-4"> 
             @yield('content')
+
+            <footer class="page-footer font-small blue">
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                    <a>Toileatter</a>
+                </div>
+                    <!-- Copyright -->
+            </footer>
+                <!-- Footer -->
         </div>
     </div>
 </div>
