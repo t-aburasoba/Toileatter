@@ -74,7 +74,7 @@
                     <small class="card-text">すぐ入れる確率(男性)：{{ $toilet->totalization->probability_enter_male }}％</small>
                     <h6 class="card-text">すぐ入れる確率(女性)：{{ $toilet->totalization->probability_enter_female }}％</h6>
                     @if($toilet->toilet_image_name != null)
-                        <img src=" {{ asset('storage/image/'.$toilet->toilet_image_name) }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 250px;">
+                        <img src=" {{ $toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 250px;">
                     @else
                         <img src="storage/image/default.jpeg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 250px;">
                     @endif
@@ -99,7 +99,7 @@
                     <a href="{{ route('toilet.show', $post->toilet->id ) }}">
                         <small class="card-text">{{ $post->toilet->toilet_name }}</small>
                         @if($post->toilet->toilet_image_name != null)
-                            <img src=" {{ asset('storage/image/'.$post->toilet->toilet_image_name) }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
+                            <img src=" {{ $post->toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                         @else
                             <img src="storage/image/default.jpeg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                         @endif
@@ -126,7 +126,7 @@
                 <a href="{{ route('toilet.show', $toilet->id ) }}">
                     <small class="card-text">{{ $toilet->toilet_name }}</small>
                     @if($toilet->toilet_image_name != null)
-                        <img src=" {{ asset('storage/image/'.$toilet->toilet_image_name) }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
+                        <img src=" {{ $toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                     @else
                         <img src="storage/image/default.jpeg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                     @endif
@@ -158,7 +158,7 @@
                     {{-- <p href="#" class="d-block mb-4 h-100"> --}}
                         <h5 class="card-title">{{ $toilet->toilet_name }}</h5>
                         @if($toilet->totalization->toilet_image_name != null)
-                        <img src=" {{ asset('storage/image/'.$toilet->totalization->toilet_image_name) }} " class="card-img-top" alt="トイレの画像" style="object-fit: cover; height: 200px; width: 200px;">
+                        <img src=" {{ $toilet->totalization->toilet_image_name }} " class="card-img-top" alt="トイレの画像" style="object-fit: cover; height: 200px; width: 200px;">
                         @else
                             <img src="storage/image/default.jpeg" class="card-img-top, img-thumbnail" alt="トイレの画像" style="object-fit: cover; height: 200px; width: 200px;">
                         @endif

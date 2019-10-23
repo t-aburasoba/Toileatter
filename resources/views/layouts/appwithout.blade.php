@@ -22,7 +22,7 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app" style="background: url('storage/image/bg.png'); background-size: cover; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten; background-position:0pt -60pt;">
+    <div id="app" style="background: url('https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/connection_b38q.svg'); background-size: cover; background-color:rgba(255,255,255,0.8); background-blend-mode:lighten; background-position:0pt -60pt;">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="position: sticky; top: 0; z-index: 2; height: 68px; background-color: transparent;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/toilet') }}" style="font-size: 24px;">

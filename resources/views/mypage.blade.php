@@ -31,7 +31,7 @@
                                     <img class="img-thumbnail" src="{{ Auth::user()->avatar }}" width="200px" height="200px">
                                     <h6>こんにちは{{ Auth::user()->name }}さん<br>Twitterログインありがとう!</h6>
                                 @else
-                                    <img src=" {{ asset('storage/image/'.Auth::user()->user_image) }} " class="card-img-top, img-thumbnail" alt="あなたの画像" style="object-fit: cover; height: 200px; width: 200px;">
+                                    <img src=" {{ Auth::user()->user_image }} " class="card-img-top, img-thumbnail" alt="あなたの画像" style="object-fit: cover; height: 200px; width: 200px;">
                                     <h6>Upload a different photo...</h6>
         
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1" name="user_image">
@@ -149,7 +149,7 @@
                         {{-- <a href="#" class="d-block mb-4"> --}}
                             <div class="card-body checkin">
                                 <h5 class="card-title">{{ $post->toilet->toilet_name }}</h5>
-                                <img src=" {{ asset('storage/image/'.$post->toilet_image_name) }} " class="card-img-top" alt="トイレの画像の登録なし" style="object-fit: cover; height: 200px;"> 
+                                <img src=" {{ $post->toilet_image_name }} " class="card-img-top" alt="トイレの画像の登録なし" style="object-fit: cover; height: 200px;"> 
                                 <p class="card-text">個室の数：{{ $post->closet_bowl_number }}</p>
                                 <p class="card-text">綺麗でしたか：{{ $post->beautifulness }}</p>
                                 <p class="card-text">すぐ入れた？：{{ $post->quickly_enter }}</p>

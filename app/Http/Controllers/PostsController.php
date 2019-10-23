@@ -10,6 +10,7 @@ use App\Totalization;
 use App\Station;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostRequest;
+use JD\Cloudder\Facades\Cloudder;
 
 class PostsController extends Controller
 {
@@ -67,11 +68,26 @@ class PostsController extends Controller
             $post->toilet_id = $request->toilet_id;
             $post->gender = $request->gender;
 
-            if($request->file('toilet_image_name') !== null) {
-                if($request->file('toilet_image_name')->isValid()){
-                    $filename = $request->file('toilet_image_name')->store('public/image');
-                    $post->toilet_image_name = basename($filename);
-                }
+            // if($request->file('toilet_image_name') !== null) {
+            //     if($request->file('toilet_image_name')->isValid()){
+            //         $filename = $request->file('toilet_image_name')->store('public/image');
+            //         $post->toilet_image_name = basename($filename);
+            //     }
+
+            $data = $request->all();
+            if ($toilet_image_name = $request->file('toilet_image_name')) {
+                $image_name = $toilet_image_name->getRealPath();
+                // Cloudinaryへアップロード
+                Cloudder::upload($image_name, null);
+                list($width, $height) = getimagesize($image_name);
+                // 直前にアップロードした画像のユニークIDを取得します。
+                $publicId = Cloudder::getPublicId();
+                // URLを生成します
+                $logoUrl = Cloudder::show($publicId, [
+                    'width'     => $width,
+                    'height'    => $height
+                ]);
+                $post->toilet_image_name = $logoUrl;
             }
             // dd($post);
             $post->save();

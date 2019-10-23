@@ -11,7 +11,7 @@
                 @foreach($posts as $post)
                 <div class="col-lg-3 col-md-4 col-6">
                     <a href="#" class="d-block mb-4 h-100">
-                        <img src=" {{ asset('storage/image/'.$post->toilet_image_name) }} " class="card-img-top" alt="トイレの画像"style="object-fit: cover; height: 200px; width: 200px;">
+                        <img src=" {{ $post->toilet_image_name }} " class="card-img-top" alt="トイレの画像"style="object-fit: cover; height: 200px; width: 200px;">
                         
                         <div class="card-body">
                             <h5 class="card-title">綺麗さ：{{ $post->beautifulness }}</h5>

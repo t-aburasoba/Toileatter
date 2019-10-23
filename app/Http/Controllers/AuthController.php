@@ -21,7 +21,9 @@ class AuthController extends Controller
 
     public function callback()
     {
-        $providerUser = Socialite::driver('Twitter')->user();
+        // $providerUser = Socialite::driver('Twitter')->user();
+        $providerUser = Socialite::driver('Twitter')->userFromTokenAndSecret(env('TWITTER_ACCESS_TOKEN'), env('TWITTER_ACCESS_TOKEN_SECRET'));
+
 
         // 既に存在するユーザーかを確認
         $socialUser = SocialUser::where('provider_user_id', $providerUser->id)->first();
