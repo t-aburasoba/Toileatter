@@ -164,6 +164,8 @@ return [
 
         JD\Cloudder\CloudderServiceProvider::class,
 
+        Weidner\Goutte\GoutteServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -231,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
+        'Goutte' => Weidner\Goutte\GoutteFacade::class,
 
     ],
 

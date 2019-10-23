@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="position: sticky; top: 0; z-index: 2; height: 68px; background-color: transparent;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/toilet') }}" style="font-size: 24px;">
-                    Toileatter
+                    <img src="https://res.cloudinary.com/dlalfv68e/image/upload/v1571821513/v0rxug3uydzfhk7boqqx.png" alt="" style="width: 155px; margin-top: 14px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -108,17 +108,17 @@
                 <div class="row justify-content-center" style="color: #eee;">
                     <div class="col-md-8">
                         <h3 class="text-center" style="font-size: 20px;">あなたの投稿が腹痛民を救います。</h3>
-                        <p class="text-center" style="font-size: 14px;">Toileatterで駅構内のすぐ入れるトイレを検索することができます。</p>
+                        <p class="text-center" style="font-size: 14px; margin-bottom: 3px;">Toileatterで駅構内のすぐ入れるトイレを検索することができます。</p>
                     </div>
                 </div>
             </div>
         <div class="container py-4"> 
             @yield('content')
 
-            <footer class="page-footer font-small blue mt-5">
+            <footer class="page-footer font-small blue mt-5 pt-5">
                 <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© 2019 Copyright:
-                    <a>Toileatter</a>
+                <div class="footer-copyright text-center py-3">
+                    <a class="cpright">© 2019 Copyright: Toileatter</a>
                 </div>
                     <!-- Copyright -->
             </footer>

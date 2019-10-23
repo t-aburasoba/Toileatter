@@ -6,13 +6,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="opacity: 0.9; border: none;">
-                <div class="card-header" style="background-color: #2A293E; ">
+                <div class="card-header" style="background-color: #2A293E; opacity: 0.6;">
                     <div class="text-center" style="color: white; font-size: 14px;">
                         {{ __('Login') }}
                     </div>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" style="margin-top: 16px;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
