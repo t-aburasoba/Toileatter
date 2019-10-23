@@ -15,8 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('station_id')->nullable();;
-            $table->unsignedBigInteger('route_id')->nullable();;
+            $table->unsignedBigInteger('station_id')->nullable();
+            $table->unsignedBigInteger('route_id')->nullable();
             $table->string('name')->default('ゲスト')->nullable();
             $table->string('user_image', 255)->nullable();
             $table->string('email')->unique();
