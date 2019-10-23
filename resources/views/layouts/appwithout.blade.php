@@ -115,7 +115,7 @@
         <div class="container py-4"> 
             @yield('content')
 
-            <footer class="page-footer font-small blue">
+            <footer class="page-footer font-small blue mt-5">
                 <!-- Copyright -->
                 <div class="footer-copyright text-center py-3">© 2019 Copyright:
                     <a>Toileatter</a>
