@@ -38,7 +38,7 @@ class AuthController extends Controller
         $user = new User();
         $user->unique_id = $providerUser->nickname;
         $user->name = $providerUser->name;
-        $user->avatar = $providerUser->user['profile_image_url_https'];
+        $user->avatar = $providerUser->user['profile_image_url'];
         $user->bio = $providerUser->user['description'];
 
         $socialUser = new SocialUser();
