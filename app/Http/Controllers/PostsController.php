@@ -339,6 +339,7 @@ class PostsController extends Controller
 
         return view('toilets.index', [
             'toilets' => $toilets,
+            'toiletsrand' => $toilets,
             'search_result' => $search_result,
             'stations' => $stations, 
             'totalizations' => $totalizations, 
