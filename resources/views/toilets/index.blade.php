@@ -98,8 +98,8 @@
                 <div class="col-md-3 card-wrap-small p-0">
                     <a href="{{ route('toilet.show', $post->toilet->id ) }}">
                         <small class="card-text">{{ $post->toilet->toilet_name }}</small>
-                        @if($post->toilet->toilet_image_name != null)
-                            <img src=" {{ $post->toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
+                        @if($post->toilet_image_name != null)
+                            <img src=" {{ $post->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                         @else
                             <img src="https://res.cloudinary.com/dlalfv68e/image/upload/v1571889673/sjcjpfap9wgpppenjoqs.jpg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                         @endif
