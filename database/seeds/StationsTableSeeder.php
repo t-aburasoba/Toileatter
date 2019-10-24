@@ -84,7 +84,7 @@ class StationsTableSeeder extends Seeder
             ['name' => '代々木',
             'route_id'=> '1',
             ],
-            ['name' => '大久保',
+            ['name' => '新大久保',
             'route_id'=> '1',
             ],
             ['name' => '高田馬場',
