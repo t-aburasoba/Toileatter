@@ -329,9 +329,9 @@ class PostsController extends Controller
         $user = User::all()->where('id', $post->user_id)->first();
         $posts = Post::all()->where('toilet_id', $post->toilet_id)->sortByDesc('created_at');
 
-        return redirect('/mypage', $post->toilet_id, ['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization]);
+        return redirect(url('/mypage'), $post->toilet_id, ['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization]);
 
-        // return redirect('mypage');
+        // return redirect('mypage');url('/')
     }
 
     public function search(Request $request)
