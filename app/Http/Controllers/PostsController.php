@@ -329,7 +329,7 @@ class PostsController extends Controller
         $user = User::all()->where('id', $post->user_id)->first();
         $posts = Post::all()->where('toilet_id', $post->toilet_id)->sortByDesc('created_at');
 
-        return view('mypage', $post->toilet_id, ['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization]);
+        return view('mypage',['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization]);
 
         // return redirect('mypage');url('/')
     }
