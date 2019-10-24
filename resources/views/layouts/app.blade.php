@@ -116,7 +116,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('mypage.index') }}">Mypage</a>
-                                    <a type="button" class="dropdown-item" data-toggle="modal" data-target="#myModal">How to use</a>
+                                    <a type="button" class="dropdown-item" data-toggle="modal" data-target="#myModal" style="-webkit-appearance: none;">How to use</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

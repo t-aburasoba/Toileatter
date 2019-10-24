@@ -16,7 +16,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active p-0 mb-2">
-                        <img class="d-block" src="../storage/image/default.jpeg" alt="First slide" style="width: 100%; object-fit: cover; height: 250px;">
+                        <img class="d-block" src="https://res.cloudinary.com/dlalfv68e/image/upload/v1571889673/sjcjpfap9wgpppenjoqs.jpg" alt="First slide" style="width: 100%; object-fit: cover; height: 250px;">
                     </div>
                     @foreach ($posts as $post)
                         @if($post->toilet_image_name != null)
