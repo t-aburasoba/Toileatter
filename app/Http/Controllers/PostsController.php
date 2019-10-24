@@ -330,16 +330,14 @@ class PostsController extends Controller
     public function search(Request $request)
     {
         $stations = Station::all();
-        $toiletsrand = Toilet::inRandomOrder()->take(6)->get();
         $totalizations = Totalization::all();
         $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
-        $toilets = Toilet::query()
+        $toiletsrand = Toilet::query()
                     ->where('toilet_name', 'like', '%' . $request->search . '%')->get();
                     // dd($toilets);
-        $search_result = '「'.$request->search.'」の検索結果'.count($toilets).'件';
+        $search_result = '「'.$request->search.'」の検索結果'.count($toiletsrand).'件';
 
         return view('toilets.index', [
-            'toilets' => $toilets,
             'toiletsrand' => $toiletsrand,
             'search_result' => $search_result,
             'stations' => $stations, 
