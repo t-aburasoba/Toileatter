@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoutesTableSeeder::class);
         $this->call(StationsTableSeeder::class);
-        // $this->call(UsersTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
         $this->call(ToiletsTableSeeder::class);
         $this->call(PostsTableSeeder::class);
         $this->call(TotalizationsTableSeeder::class);
