@@ -48,7 +48,7 @@
                 function initMap() {
                     map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: {{ $toilet->latitude }}, lng: {{ $toilet->longtitude }}},
-                    zoom: 8
+                    zoom: 18
                     });
                 }
                 </script>

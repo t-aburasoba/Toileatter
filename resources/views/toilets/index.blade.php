@@ -76,7 +76,7 @@
                     @if($toilet->toilet_image_name != null)
                         <img src=" {{ $toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 250px;">
                     @else
-                        <img src="storage/image/default.jpeg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 250px;">
+                        <img src="https://res.cloudinary.com/dlalfv68e/image/upload/v1571889673/sjcjpfap9wgpppenjoqs.jpg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 250px;">
                     @endif
                 </a>
             </div>
@@ -101,7 +101,7 @@
                         @if($post->toilet->toilet_image_name != null)
                             <img src=" {{ $post->toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                         @else
-                            <img src="storage/image/default.jpeg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
+                            <img src="https://res.cloudinary.com/dlalfv68e/image/upload/v1571889673/sjcjpfap9wgpppenjoqs.jpg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                         @endif
                     </a>
                 </div>
@@ -128,7 +128,7 @@
                     @if($toilet->toilet_image_name != null)
                         <img src=" {{ $toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                     @else
-                        <img src="storage/image/default.jpeg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
+                        <img src="https://res.cloudinary.com/dlalfv68e/image/upload/v1571889673/sjcjpfap9wgpppenjoqs.jpg" class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 150px;">
                     @endif
                 </a>
             </div>
@@ -160,7 +160,7 @@
                         @if($toilet->totalization->toilet_image_name != null)
                         <img src=" {{ $toilet->totalization->toilet_image_name }} " class="card-img-top" alt="トイレの画像" style="object-fit: cover; height: 200px; width: 200px;">
                         @else
-                            <img src="storage/image/default.jpeg" class="card-img-top, img-thumbnail" alt="トイレの画像" style="object-fit: cover; height: 200px; width: 200px;">
+                            <img src="https://res.cloudinary.com/dlalfv68e/image/upload/v1571889673/sjcjpfap9wgpppenjoqs.jpg" class="card-img-top, img-thumbnail" alt="トイレの画像" style="object-fit: cover; height: 200px; width: 200px;">
                         @endif
                         <div class="card-body">
                             <p class="card-text">すぐ入れる確率(男性)：{{ $toilet->totalization->probability_enter_male }}％</p>
