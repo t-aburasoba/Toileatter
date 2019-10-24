@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12 text-center title">
                     @isset($search_result)
-                    <h1>{{$search_result}}</h1>
+                    <h1 style="color: #eee;">{{$search_result}}</h1>
                     @else
                     <h1 style="color: #eee;">あなたの投稿が腹痛民を救います。</h1>
                     <p class="mb-0" style="color: #eee;">Toileatter（トイレアッター）は駅構内のトイレを評価しシェアするアプリです。</p>                    
@@ -67,7 +67,7 @@
         </div>
         
         <div class="row">
-            @foreach($toilets as $toilet)
+            @foreach($toiletsrand as $toilet)
             <div class="col-md-4 card-wrap p-0">
                 <a href="{{ route('toilet.show', $toilet->id ) }}">
                     <h5 class="card-title">{{ $toilet->toilet_name }}</h5>

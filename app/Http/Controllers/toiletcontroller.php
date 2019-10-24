@@ -25,13 +25,14 @@ class Toiletcontroller extends Controller
      */
     public function index()
     {
-        $toilets = Toilet::inRandomOrder()->take(6)->get();
+        $toiletsrand = Toilet::inRandomOrder()->take(6)->get();
+        $toilets = Toilet::all();
         $stations = Station::all();
         $totalizations = Totalization::all();
         $posts = Post::orderBy('created_at', 'desc')->take(8)->get();
         // dd($totalizations);
         
-        return view('toilets.index', ['toilets' => $toilets, 'stations' => $stations, 'totalizations' => $totalizations, 'posts' => $posts]);
+        return view('toilets.index', ['toiletsrand' => $toiletsrand, 'toilets' => $toilets, 'stations' => $stations, 'totalizations' => $totalizations, 'posts' => $posts]);
 
 
         // $posts = DB::select('select * from toilets');
