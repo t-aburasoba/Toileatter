@@ -17,7 +17,6 @@ class CreateToiletsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('station_id');
             $table->string('toilet_name', 30);
-            $table->integer('closet_bowl_number');
             $table->string('toilet_image_name', 30)->nullable();
             $table->double('latitude', 9,6);
             $table->double('longtitude', 9,6);
