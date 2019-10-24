@@ -204,7 +204,7 @@ class PostsController extends Controller
             ], [
                 'toilet_image_name' => $logoUrl]);
 
-            dd($toilet->toilet_image_name);
+            $toilet->save();
 
             $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
             $user = User::all()->where('id', $post->user_id)->first();
