@@ -199,6 +199,13 @@ class PostsController extends Controller
 
             $totalization->save();
 
+            $toilet=Toilet::updateOrCreate([
+                'id' => $post->toilet_id
+            ], [
+                'toilet_image_name' => $logoUrl]);
+
+            dd($toilet->toilet_image_name);
+
             $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
             $user = User::all()->where('id', $post->user_id)->first();
             $posts = Post::all()->where('toilet_id', $request->toilet_id)->sortByDesc('created_at');
