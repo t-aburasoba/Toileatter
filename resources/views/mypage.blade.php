@@ -42,11 +42,12 @@
                     
                     <!-- edit form column -->
                     <div class="col-md-7 personal-info">
-                        <div class="alert alert-danger alert-dismissable">
-                            <a class="panel-close close" data-dismiss="alert">×</a> 
+                        {{-- <div class="alert alert-danger alert-dismissable">
+                            <a class="panel-close close" data-dismiss="alert-success">×</a> 
                             <i class="fa fa-toilet"></i>
-                            <strong>性別</strong>は必須です。他はあとにしてもOK。
-                        </div>
+                            <strong>名前、性別、路線、駅</strong>を設定しましょう。画像はなしでもOK
+
+                        </div> --}}
                         <h3>Personal info</h3>
                         
                             <div class="form-group">
