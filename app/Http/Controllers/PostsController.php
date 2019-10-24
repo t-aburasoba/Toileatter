@@ -8,6 +8,7 @@ use App\Toilet;
 use App\Models\User;
 use App\Totalization;
 use App\Station;
+use App\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\PostRequest;
 use JD\Cloudder\Facades\Cloudder;
@@ -328,8 +329,9 @@ class PostsController extends Controller
         $toilet = Toilet::all()->where('id', $post->toilet_id)->first();
         $user = User::all()->where('id', $post->user_id)->first();
         $posts = Post::all()->where('toilet_id', $post->toilet_id)->sortByDesc('created_at');
+        $routes = Route::all();
 
-        return view('mypage',['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization]);
+        return view('mypage',['posts'=>$posts, 'toilet'=>$toilet, 'user'=>$user, 'totalization'=>$totalization, 'routes'=>$routes]);
 
         // return redirect('mypage');url('/')
     }
