@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'email'=> 'test@test.com',
             'password'=>bcrypt('testtest'),
             'gender' => 'Female',
-            'station_id' => '3',
+            'station_id' => '1',
             'route_id' => '1',
             ]
         );

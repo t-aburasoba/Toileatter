@@ -18,7 +18,7 @@ class ToiletsTableSeeder extends Seeder
             'toilet_image_name'=> 'mirror.jpeg',
             'latitude'=>'36',
             'longtitude' => '140',
-            'station_id' => '2',
+            'station_id' => '11',
             ],
 
             ['toilet_name' => '新宿駅西口',
@@ -26,7 +26,7 @@ class ToiletsTableSeeder extends Seeder
             'toilet_image_name'=> 'restroom.jpeg',
             'latitude'=>'36',
             'longtitude' => '140',
-            'station_id' => '3',
+            'station_id' => '21',
             ],
 
             ['toilet_name' => '田町駅',
@@ -42,7 +42,7 @@ class ToiletsTableSeeder extends Seeder
             'toilet_image_name'=> 'default.jpeg',
             'latitude'=>'36',
             'longtitude' => '140',
-            'station_id' => '4',
+            'station_id' => '31',
             ],
 
             ['toilet_name' => '神田駅',
@@ -50,7 +50,7 @@ class ToiletsTableSeeder extends Seeder
             'toilet_image_name'=> 'frog.jpeg',
             'latitude'=>'36',
             'longtitude' => '140',
-            'station_id' => '6',
+            'station_id' => '51',
             ],
 
             ['toilet_name' => '東京駅',
@@ -58,7 +58,7 @@ class ToiletsTableSeeder extends Seeder
             'toilet_image_name'=> 'moresou.jpeg',
             'latitude'=>'36',
             'longtitude' => '140',
-            'station_id' => '5',
+            'station_id' => '41',
             ],
 
         ]);
