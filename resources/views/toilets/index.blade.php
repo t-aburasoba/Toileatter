@@ -116,7 +116,16 @@
         <div class="row mt-5">
             <div class="col-md-12">
             <p class="fsm">あなたが使いそうなトイレ</p>
-            <p class="fss">よく使う路線：{{Auth::user()->route->name}}　　　よく使う駅：{{Auth::user()->station->name}}</p>
+            @isset(Auth::user()->route_id)
+                <p class="fss">よく使う路線：{{Auth::user()->route->name}}</p>
+            @else
+                <p class="fss">よく使う路線：未設定</p>
+            @endisset
+            @isset(Auth::user()->station_id)
+                <p class="fss">よく使う駅：{{Auth::user()->station->name}}</p>
+            @else
+                <p class="fss">よく使う駅：未設定</p>
+            @endisset
             </div>
         </div>
         <div class="row">
