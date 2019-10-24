@@ -330,6 +330,7 @@ class PostsController extends Controller
     public function search(Request $request)
     {
         $stations = Station::all();
+        $toiletsrand = Toilet::inRandomOrder()->take(6)->get();
         $totalizations = Totalization::all();
         $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
         $toilets = Toilet::query()
@@ -339,7 +340,7 @@ class PostsController extends Controller
 
         return view('toilets.index', [
             'toilets' => $toilets,
-            'toiletsrand' => $toilets,
+            'toiletsrand' => $toiletsrand,
             'search_result' => $search_result,
             'stations' => $stations, 
             'totalizations' => $totalizations, 
