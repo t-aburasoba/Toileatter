@@ -331,6 +331,7 @@ class PostsController extends Controller
     {
         $stations = Station::all();
         $totalizations = Totalization::all();
+        $toilets = Toilet::all();
         $posts = Post::orderBy('created_at', 'desc')->take(4)->get();
         $toiletsrand = Toilet::query()
                     ->where('toilet_name', 'like', '%' . $request->search . '%')->get();
@@ -338,6 +339,7 @@ class PostsController extends Controller
         $search_result = '「'.$request->search.'」の検索結果'.count($toiletsrand).'件';
 
         return view('toilets.index', [
+            'toilets' => $toilets,
             'toiletsrand' => $toiletsrand,
             'search_result' => $search_result,
             'stations' => $stations, 
