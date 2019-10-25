@@ -38,12 +38,10 @@ class AuthController extends Controller
 
         // 新しいユーザーを作成
 
-        dd($providerUser);
-
         $user = new User();
         $user->unique_id = $providerUser->nickname;
         $user->name = $providerUser->name;
-        $user->avatar = $providerUser->user['profile_image_url_https'];
+        $user->avatar = $providerUser->avatar;
         // $user->bio = $providerUser->user['description'];
 
         $socialUser = new SocialUser();
