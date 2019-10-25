@@ -18,8 +18,8 @@ class CreateTotalizationsTable extends Migration
             $table->unsignedBigInteger('toilet_id');
             $table->integer('evaluation')->nullable();
             $table->integer('total_users')->default('0');
-            $table->integer('probability_enter_male')->default('未回答');
-            $table->integer('probability_enter_female')->default('未回答');
+            $table->integer('probability_enter_male')->default('0');
+            $table->integer('probability_enter_female')->default('0');
             $table->string('beautifulness_male',30)->default('未回答');
             $table->string('beautifulness_female',30)->default('未回答');
             $table->integer('number_male')->default('0');
