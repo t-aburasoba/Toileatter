@@ -240,6 +240,29 @@ class ToiletsTableSeeder extends Seeder
             'longtitude' => '139.7708039',
             'station_id' => '51',
             ],
+            ['toilet_name' => '東京駅八重洲北口',
+            'latitude'=>'35.6817981',
+            'longtitude' => '139.7679139',
+            'station_id' => '41',
+            ],
+
+            ['toilet_name' => '池袋駅中央口',
+            'latitude'=>'35.7299277',
+            'longtitude' => '139.7111305',
+            'station_id' => '251',
+            ],
+            
+            ['toilet_name' => '上野駅中央改札前',
+            'latitude'=>'35.7127938',
+            'longtitude' => '139.7766270',
+            'station_id' => '31',
+            ],
+
+            ['toilet_name' => '新宿駅南口',
+            'latitude'=>'35.6898800',
+            'longtitude' => '139.7008928',
+            'station_id' => '21',
+            ],
 
         ]);
     }

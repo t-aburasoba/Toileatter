@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" style="opacity: 0.9; border: none;">
-                <div class="card-header" style="background-color: #2A293E; margin-bottom: 15px;">
+                <div class="card-header" style="background-color: #2A293E; margin-bottom: 15px; opacity: 0.6;">
                     <div class="text-center" style="color: white; font-size: 14px;">
                         {{ __('まずはユーザー登録（無料）') }}
                     </div>
