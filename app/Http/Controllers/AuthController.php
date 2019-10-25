@@ -34,7 +34,12 @@ class AuthController extends Controller
             return redirect('/');
         }
 
+
+
         // 新しいユーザーを作成
+
+        dd($providerUser);
+
         $user = new User();
         $user->unique_id = $providerUser->nickname;
         $user->name = $providerUser->name;
