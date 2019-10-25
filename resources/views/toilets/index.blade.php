@@ -71,7 +71,7 @@
             <div class="col-md-4 card-wrap p-0">
                 <a href="{{ route('toilet.show', $toilet->id ) }}">
                     <h5 class="card-title" style="background-color: #444;">{{ $toilet->toilet_name }}</h5>
-                    <small class="card-text" style="backgroud-color: #444;">すぐ入れる確率(男性)：{{ $toilet->totalization->probability_enter_male }}％</small>
+                    <small class="card-text" style="background-color: #444;">すぐ入れる確率(男性)：{{ $toilet->totalization->probability_enter_male }}％</small>
                     <h6 class="card-text" style="background-color: #444;">すぐ入れる確率(女性)：{{ $toilet->totalization->probability_enter_female }}％</h6>
                     @if($toilet->toilet_image_name != null)
                         <img src=" {{ $toilet->toilet_image_name }} " class="card-img-top p-0" alt="トイレの画像" style="object-fit: cover; height: 250px;">
