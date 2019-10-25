@@ -317,10 +317,18 @@ class PostsController extends Controller
                 $array_distance_rand = array_rand($array_distance,1);
                 $distance = $array_distance[$array_distance_rand];
             }
-            $probability_enter_female = round($quickly_enter / $total_users * 100);
-            $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
+            if($total_users != 0){
+                $probability_enter_female = round($quickly_enter / $total_users * 100);
+            }else{
+                $probability_enter_female = "0";
+            }
+            $number = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
             $number_sum = array_sum($number);
-            $number_female = $number_sum / $total_users_gender;
+            if($total_users_gender != 0){
+                $number_female = $number_sum / $total_users_gender;
+            }else{
+                $number_female = "0";
+            }
 
             $totalization=Totalization::updateOrCreate([
                 'toilet_id' => $post->toilet_id
