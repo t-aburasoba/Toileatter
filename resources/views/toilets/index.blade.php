@@ -85,7 +85,7 @@
     </div>
 </section>
 
-<section style="background-position: 0px -92px; background-repeat: no-repeat; background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/post_online_dkuk.svg);">
+<section>
     <div class="container index_main_small">
         <hr class="mt-5">
         <div class="row mt-5">
