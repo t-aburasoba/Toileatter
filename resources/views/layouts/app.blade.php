@@ -54,7 +54,7 @@
                     <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" style="font-size: 20px;">How to use</h5>
+                                <h5 class="modal-title" style="font-size: 20px;" style="cursor: pointer;">How to use</h5>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body p-5" style="height: 325px;">
