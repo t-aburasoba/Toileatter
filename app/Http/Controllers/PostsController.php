@@ -311,11 +311,15 @@ class PostsController extends Controller
             if(isset($array_beautifulness)){
                 $array_beautifulness_rand = array_rand($array_beautifulness,1);
                 $beautifulness_female = $array_beautifulness[$array_beautifulness_rand];
+            }else{
+                $beautifulness_female = "普通";
             }
             $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
             if(isset($array_distance)){
                 $array_distance_rand = array_rand($array_distance,1);
                 $distance = $array_distance[$array_distance_rand];
+            }else{
+                $distance = "近い";
             }
             if($total_users != 0){
                 $probability_enter_female = round($quickly_enter / $total_users * 100);
