@@ -277,11 +277,15 @@ class PostsController extends Controller
             $total_users_gender = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->count();
             $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
             $array_beautifulness = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->mode('beautifulness');
-            $array_beautifulness_rand = array_rand($array_beautifulness,1);
-            $beautifulness_male = $array_beautifulness[$array_beautifulness_rand];
+            if(isset($array_beautifulness)){
+                $array_beautifulness_rand = array_rand($array_beautifulness,1);
+                $beautifulness_male = $array_beautifulness[$array_beautifulness_rand];
+            }
             $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
-            $array_distance_rand = array_rand($array_distance,1);
-            $distance = $array_distance[$array_distance_rand];
+            if(isset($array_distance)){
+                $array_distance_rand = array_rand($array_distance,1);
+                $distance = $array_distance[$array_distance_rand];
+            }
             $probability_enter_male = round($quickly_enter / $total_users * 100);
             $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
             $number_sum = array_sum($number);
@@ -304,11 +308,15 @@ class PostsController extends Controller
             $total_users_gender = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->count();
             $total_users = Post::all()->where('toilet_id', $post->toilet_id)->count();
             $array_beautifulness = Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->mode('beautifulness');
-            $array_beautifulness_rand = array_rand($array_beautifulness,1);
-            $beautifulness_female = $array_beautifulness[$array_beautifulness_rand];
+            if(isset($array_beautifulness)){
+                $array_beautifulness_rand = array_rand($array_beautifulness,1);
+                $beautifulness_female = $array_beautifulness[$array_beautifulness_rand];
+            }
             $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
-            $array_distance_rand = array_rand($array_distance,1);
-            $distance = $array_distance[$array_distance_rand];
+            if(isset($array_distance)){
+                $array_distance_rand = array_rand($array_distance,1);
+                $distance = $array_distance[$array_distance_rand];
+            }
             $probability_enter_female = round($quickly_enter / $total_users * 100);
             $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
             $number_sum = array_sum($number);
