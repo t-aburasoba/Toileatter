@@ -280,16 +280,28 @@ class PostsController extends Controller
             if(isset($array_beautifulness)){
                 $array_beautifulness_rand = array_rand($array_beautifulness,1);
                 $beautifulness_male = $array_beautifulness[$array_beautifulness_rand];
+            }else{
+                $beautifulness_male = "普通";
             }
             $array_distance = Post::all()->where('toilet_id', $post->toilet_id)->mode('distance');
             if(isset($array_distance)){
                 $array_distance_rand = array_rand($array_distance,1);
                 $distance = $array_distance[$array_distance_rand];
+            }else{
+                $distance = "近い";
             }
+            if($total_users != 0){
             $probability_enter_male = round($quickly_enter / $total_users * 100);
+            }else{
+                $probability_enter_male = "0";
+            }
             $number =  Post::all()->where('gender', $post->gender)->where('toilet_id', $post->toilet_id)->pluck('closet_bowl_number')->all();
             $number_sum = array_sum($number);
+            if($total_users_gender != 0){
             $number_male = $number_sum / $total_users_gender;
+            }else{
+                $number_male = "0";
+            }
 
             $totalization=Totalization::updateOrCreate([
                 'toilet_id' => $post->toilet_id
