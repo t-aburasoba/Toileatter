@@ -54,7 +54,7 @@
                     <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" style="font-size: 20px;" style="cursor: pointer;">How to use</h5>
+                                <h5 class="modal-title" style="font-size: 20px;">How to use</h5>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body p-5" style="height: 325px;">
@@ -116,7 +116,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('mypage.index') }}">Mypage</a>
-                                    <a type="button" class="dropdown-item" data-toggle="modal" data-target="#myModal" style="-webkit-appearance: none;">How to use</a>
+                                    <a type="button" class="dropdown-item" data-toggle="modal" data-target="#myModal" style="-webkit-appearance: none; cursor: pointer;">How to use</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
