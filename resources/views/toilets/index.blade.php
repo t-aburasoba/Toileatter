@@ -70,7 +70,7 @@
             @foreach($toiletsrand as $toilet)
             <div class="col-md-4 card-wrap p-0">
                 <a href="{{ route('toilet.show', $toilet->id ) }}">
-                    <h5 class="card-title" style="background-colo: #444;">{{ $toilet->toilet_name }}</h5>
+                    <h5 class="card-title" style="background-color: #444;">{{ $toilet->toilet_name }}</h5>
                     <small class="card-text" style="backgroud-color: #444;">すぐ入れる確率(男性)：{{ $toilet->totalization->probability_enter_male }}％</small>
                     <h6 class="card-text" style="background-color: #444;">すぐ入れる確率(女性)：{{ $toilet->totalization->probability_enter_female }}％</h6>
                     @if($toilet->toilet_image_name != null)
