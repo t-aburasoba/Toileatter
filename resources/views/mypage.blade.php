@@ -66,15 +66,10 @@
                                             {{-- <label for="male">Male</label> --}}
                                             <input id="female" type="radio" name="gender" value="Female" required="required">Female
                                             {{-- <label for="female">Female</label> --}}
-                                        @elseif (Auth::user()->gender == "Female")
-                                            <input id="male" type="radio" name="gender" value="Male" required="required">Male
-                                            {{-- <label for="male">Male</label> --}}
-                                            <input id="female" type="radio" name="gender" value="Female" checked="checked" required="required">Female
-                                            {{-- <label for="female">Female</label> --}}
                                         @else
                                             <input id="male" type="radio" name="gender" value="Male" required="required">Male
                                             {{-- <label for="male">Male</label> --}}
-                                            <input id="female" type="radio" name="gender" value="Female" required="required">Female
+                                            <input id="female" type="radio" name="gender" value="Female" checked="checked" required="required">Female
                                             {{-- <label for="female">Female</label> --}}
                                         @endif
                                         @if ($errors->has('gender'))
