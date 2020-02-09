@@ -32,12 +32,11 @@ class AuthController extends Controller
         $socialUser = SocialUser::where('provider_user_id', $providerUser->id)->first();
 
         if ($socialUser) {
+            dd($socialUser);
             // 既存のユーザーはログインしてトップページへ
             Auth::login($socialUser->user, true);
             return redirect('/');
         }
-
-
 
         // 新しいユーザーを作成
 
@@ -56,7 +55,6 @@ class AuthController extends Controller
         });
 
         Auth::login($user, true);
-        dd($socialUser);
 
         // $stations = Station::all();
         // $routes = Route::all();
