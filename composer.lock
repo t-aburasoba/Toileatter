@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc15846385581fa9fbdc6d2c032de7d1",
+    "content-hash": "fc6e14f268458be3d8e74fd9a9796287",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -1256,16 +1256,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v4.2.0",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "f509d06e1e7323997b804c5152874f8aad4508e9"
+                "reference": "4bd66ee416fea04398dee5b8c32d65719a075db4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/f509d06e1e7323997b804c5152874f8aad4508e9",
-                "reference": "f509d06e1e7323997b804c5152874f8aad4508e9",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/4bd66ee416fea04398dee5b8c32d65719a075db4",
+                "reference": "4bd66ee416fea04398dee5b8c32d65719a075db4",
                 "shasum": ""
             },
             "require": {
@@ -1284,7 +1284,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -1316,7 +1316,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2019-09-03T15:27:17+00:00"
+            "time": "2020-02-04T15:30:01+00:00"
         },
         {
             "name": "laravel/tinker",
