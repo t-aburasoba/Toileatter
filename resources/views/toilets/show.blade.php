@@ -11,6 +11,14 @@
             <div class="col-md-4">
                 <a class="cp_btn mb-3" href=" {{route('posts.create', ['toilet_id' => $toilet->id])}} ">投稿する</a>
             </div>
+            <div class="col-md-4">
+                <like
+                    :toilet-id="{{ json_encode($toilet->id) }}"
+                    :user-id="{{ json_encode($user->id) }}"
+                    :count-likes="{{ json_encode($countLikes) }}"
+                    :count-liked="{{ json_encode($countLiked) }}"
+                ></like>
+            </div>
         </div>
         <div class="col-md-7">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -43,18 +51,9 @@
     <div class="row">
         <div class="col-md-12">
             <div id="map" style="width: 100%; height: 250px;"></div>
-                <script>
-                var map;
-                function initMap() {
-                    map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: {{ $toilet->latitude }}, lng: {{ $toilet->longtitude }}},
-                    zoom: 20
-                    });
-                }
-                </script>
-            </div>
         </div>
     </div>
+</div>
 
 <div class="container showcenter">
     <hr class="mt-5 mb-5">
@@ -170,5 +169,15 @@
     </div>
     @endif
 </div>
+
+<script>
+    var map;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: {{ $toilet->latitude }}, lng: {{ $toilet->longtitude }}},
+        zoom: 20
+        });
+    }
+</script>
 
 @endsection

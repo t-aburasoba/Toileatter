@@ -7,6 +7,8 @@ use App\Post;
 use App\Station;
 use App\Totalization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class Toiletcontroller extends Controller
 {
@@ -71,12 +73,21 @@ class Toiletcontroller extends Controller
         $toilet = Toilet::all()->where('id', $id)->first();
         $posts = Post::all()->where('toilet_id', $id)->sortByDesc('created_at');
         $totalization = Totalization::all()->where('toilet_id', $id)->first();
+        $user = Auth::user();
+        $toilet->load('likes');
+        $countLiked = count($toilet->likes);
+        $countLikes = $toilet->likes->where('user_id', $user->id)->first();
+        if(isset($countLikes)){
+            $countLikes == true;
+        }else{
+            $countLikes ==  false;
+        }
 
-        return view('toilets.show', ['toilet'=>$toilet,'posts'=>$posts, 'totalization'=>$totalization]);
+        return view('toilets.show', ['toilet'=>$toilet,'posts'=>$posts, 'totalization'=>$totalization, 'user'=>$user, 'countLikes'=>$countLikes, 'countLiked'=>$countLiked]);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified res ource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

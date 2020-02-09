@@ -31,4 +31,8 @@ class Toilet extends Model
         return $this->hasMany(\App\Post::class);
     }
 
+    public function likes(){
+        return $this->hasMany(\App\Like::class);
+    }
+
 }
