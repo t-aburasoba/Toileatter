@@ -181,6 +181,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*
@@ -234,6 +236,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Cloudder' => JD\Cloudder\Facades\Cloudder::class,
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
