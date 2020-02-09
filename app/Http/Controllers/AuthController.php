@@ -30,7 +30,6 @@ class AuthController extends Controller
 
         // 既に存在するユーザーかを確認
         $socialUser = SocialUser::where('provider_user_id', $providerUser->id)->first();
-        dd($socialUser);
 
         if ($socialUser) {
             // 既存のユーザーはログインしてトップページへ
@@ -48,6 +47,7 @@ class AuthController extends Controller
 
         $socialUser = new SocialUser();
         $socialUser->provider_user_id = $providerUser->id;
+        dd($socialUser);
 
         DB::transaction(function () use ($user, $socialUser) {
             $user->save();
