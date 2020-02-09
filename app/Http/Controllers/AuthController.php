@@ -27,13 +27,10 @@ class AuthController extends Controller
 
         $socialUser = SocialUser::where('provider_user_id', $providerUser->id)->first();
 
-        // 既に存在するユーザーかを確認
-        $socialUser = SocialUser::where('provider_user_id', $providerUser->id)->first();
-
         if ($socialUser) {
             // 既存のユーザーはログインしてトップページへ
             Auth::login($socialUser->user, true);
-            return redirect('/auth/twitter/callback');
+            return redirect('/');
         }
 
         // 新しいユーザーを作成
