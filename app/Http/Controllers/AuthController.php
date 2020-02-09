@@ -47,7 +47,6 @@ class AuthController extends Controller
 
         $socialUser = new SocialUser();
         $socialUser->provider_user_id = $providerUser->id;
-        dd($socialUser);
 
         DB::transaction(function () use ($user, $socialUser) {
             $user->save();
