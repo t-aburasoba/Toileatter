@@ -30,9 +30,9 @@ class AuthController extends Controller
 
         // 既に存在するユーザーかを確認
         $socialUser = SocialUser::where('provider_user_id', $providerUser->id)->first();
+        dd($socialUser);
 
         if ($socialUser) {
-            dd($socialUser);
             // 既存のユーザーはログインしてトップページへ
             Auth::login($socialUser->user, true);
             return redirect('/');
