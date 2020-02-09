@@ -23,8 +23,7 @@ class AuthController extends Controller
     {
         $providerUser = Socialite::driver('Twitter')->user();
 
-        // $providerUser = Socialite::driver('Twitter')->userFromTokenAndSecret(env('TWITTER_ACCESS_TOKEN'), env('TWITTER_ACCESS_TOKEN_SECRET'));
-
+        // 既に存在するユーザーかを確認
         $socialUser = SocialUser::where('provider_user_id', $providerUser->id)->first();
 
         if ($socialUser) {
@@ -34,12 +33,10 @@ class AuthController extends Controller
         }
 
         // 新しいユーザーを作成
-
         $user = new User();
         $user->unique_id = $providerUser->nickname;
         $user->name = $providerUser->name;
-        $user->avatar = $providerUser->avatar;
-        // $user->bio = $providerUser->user['description'];
+        $user->avatar = $providerUser->user['profile_image_url_https'];
 
         $socialUser = new SocialUser();
         $socialUser->provider_user_id = $providerUser->id;
@@ -50,12 +47,7 @@ class AuthController extends Controller
         });
 
         Auth::login($user, true);
-
-        // $stations = Station::all();
-        // $routes = Route::all();
-        // $posts = Post::all()->where('user_id', $id = Auth::id());
-        // return view('mypage', ['stations' => $stations, 'posts'=>$posts, 'routes' => $routes]);
-
         return redirect('/');
+
     }
 }
