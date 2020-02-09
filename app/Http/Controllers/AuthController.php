@@ -22,7 +22,6 @@ class AuthController extends Controller
     public function callback()
     {
         $providerUser = Socialite::driver('Twitter')->user();
-        dd($providerUser);
 
         // $providerUser = Socialite::driver('Twitter')->userFromTokenAndSecret(env('TWITTER_ACCESS_TOKEN'), env('TWITTER_ACCESS_TOKEN_SECRET'));
 
@@ -57,6 +56,7 @@ class AuthController extends Controller
         });
 
         Auth::login($user, true);
+        dd($socialUser);
 
         // $stations = Station::all();
         // $routes = Route::all();
