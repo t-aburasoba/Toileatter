@@ -63,7 +63,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mt-2">
-                                    <a href="{{ url('/auth/twitter')}}" class="cp_btn">twitterログイン</a>
+                                    <a href="{{ route('twitter.login')}}" class="cp_btn">twitterログイン</a>
                                 </div>
                                 <div class="col-md-4 col-sm-6 mt-2">
                                     <a href="{{route('toilet.index')}}" class="cp_btn">あとで登録する</a>
