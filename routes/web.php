@@ -21,7 +21,8 @@ Route::resource('totalization', 'TotalizationController');
 Route::resource('mypage', 'MypageController');
 Route::resource('user', 'UsersController');
 Auth::routes();
-Route::get('/', 'MypageController@index');
+// Route::get('/', 'MypageController@index');
+Route::view('/', 'construction');
 Route::POST('/search', 'PostsController@search')->name('posts.search');
 
 // Route::prefix('auth')->group(function () {
