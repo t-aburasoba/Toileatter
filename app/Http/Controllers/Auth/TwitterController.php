@@ -10,7 +10,7 @@ use App\Models\User;
 
 class TwitterController extends Controller
 {
-  protected $redirectPath = '/mypage';
+  protected $redirectPath = '/';
 
   public function redirectToProvider(){
       return Socialite::driver('twitter')->redirect();

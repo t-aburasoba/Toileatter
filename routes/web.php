@@ -24,10 +24,13 @@ Auth::routes();
 Route::get('/', 'MypageController@index');
 Route::POST('/search', 'PostsController@search')->name('posts.search');
 
-Route::prefix('auth')->group(function () {
-  Route::get('twitter', 'AuthController@login');
-  Route::get('twitter/callback', 'AuthController@callback');
-});
+// Route::prefix('auth')->group(function () {
+//   Route::get('twitter', 'AuthController@login');
+//   Route::get('twitter/callback', 'AuthController@callback');
+// });
+
+Route::get('/login/twitter', 'Auth\TwitterController@redirectToProvider')->name("twitter.login");
+Route::get('/login/twitter/callback', 'Auth\TwitterController@handleProviderCallback'); 
 
 // Route::get('/login/{social}', 'Auth\OAuthLoginController@socialLogin')->where('social', 'twitter');
 // Route::get('/login/{social}/callback', 'Auth\OAuthLoginController@handleProviderCallback')->where('social', 'twitter');
