@@ -35,8 +35,7 @@ class AuthController extends Controller
      * @return  \App\User   $user
      *
      */
-    protected function first_or_create_social_user( string $service_name,
-                                                int $social_id, string $social_name, string $social_avatar )
+    protected function first_or_create_social_user( string $service_name, int $social_id, string $social_name, string $social_avatar )
     {
         $user = null;
         $user = User::where( "{$service_name}_id", '=', $social_id )->first();
