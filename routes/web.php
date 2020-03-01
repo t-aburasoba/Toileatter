@@ -21,17 +21,20 @@ Route::resource('totalization', 'TotalizationController');
 Route::resource('mypage', 'MypageController');
 Route::resource('user', 'UsersController');
 Auth::routes();
-// Route::get('/', 'MypageController@index');
-Route::view('/', 'construction');
+Route::get('/', 'MypageController@index');
+// Route::view('/', 'construction');
 Route::POST('/search', 'PostsController@search')->name('posts.search');
 
 // Route::prefix('auth')->group(function () {
 //   Route::get('twitter', 'AuthController@login');
 //   Route::get('twitter/callback', 'AuthController@callback');
 // });
+Route::get('auth/twitter', 'Auth\AuthController@TwitterRedirect')->name("twitter.login");
+Route::get('auth/twitter/callback', 'Auth\AuthController@TwitterCallback');
+Route::get('auth/twitter/logout', 'Auth\AuthController@getLogout');
 
-Route::get('/login/twitter', 'Auth\TwitterController@redirectToProvider')->name("twitter.login");
-Route::get('/login/twitter/callback', 'Auth\TwitterController@handleProviderCallback'); 
+// Route::get('/login/twitter', 'Auth\TwitterController@redirectToProvider')->name("twitter.login");
+// Route::get('/login/twitter/callback', 'Auth\TwitterController@handleProviderCallback'); 
 
 // Route::get('/login/{social}', 'Auth\OAuthLoginController@socialLogin')->where('social', 'twitter');
 // Route::get('/login/{social}/callback', 'Auth\OAuthLoginController@handleProviderCallback')->where('social', 'twitter');
