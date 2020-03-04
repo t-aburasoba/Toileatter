@@ -34,7 +34,7 @@
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-md" style="z-index:1100;">
+            <div class="modal-dialog modal-md" style="z-index:1100 !important;">
     
             <!-- Modal content-->
                 <div class="modal-content">
