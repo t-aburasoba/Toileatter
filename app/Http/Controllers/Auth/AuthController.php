@@ -17,6 +17,7 @@ class AuthController extends Controller
     {
         // OAuthユーザー情報を取得
         $social_user = Socialite::driver('twitter')->user();
+        dd($social_user);
         $user = $this->first_or_create_social_user('twitter', $social_user->id, $social_user->name, $social_user->avatar );
 
         // Laravel 標準の Auth でログイン
