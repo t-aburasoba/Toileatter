@@ -134,6 +134,8 @@ return [
     |
     */
 
+    'force_ssl' => env('FORCE_SSL' ,false),
+
     'providers' => [
 
         /*
