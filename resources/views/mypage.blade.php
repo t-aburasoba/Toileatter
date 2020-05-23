@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-    <div class="container" style="background-image : url(storage/img/)">
+    <div class="container">
         @section('content')
         <div class="user_id">
         </div>
