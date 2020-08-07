@@ -38,8 +38,10 @@ class LineWebhookController extends Controller
                 // ハローと応答する
                 $replyToken = $event->getReplyToken();
                 $textMessage = new TextMessageBuilder("こんにちは");
-                $lineBotService = new LineBotService;
-                $lineBotService->getToilet($lineBot, $event);
+                // $lineBotService = new LineBotService;
+                // $lineBotService->getToilet($lineBot, $event);
+                $text = $event->getText();
+                $lineBot->replyMessage($replyToken, $text);
                 $lineBot->replyMessage($replyToken, $textMessage);
             }
         } catch (Exception $e) {
