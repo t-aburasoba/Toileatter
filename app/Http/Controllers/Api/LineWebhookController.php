@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Toilet;
 use LINE\LINEBot;
 use LINE\LINEBot\Constant\HTTPHeader;
 use LINE\LINEBot\SignatureValidator;
@@ -40,10 +41,12 @@ class LineWebhookController extends Controller
                 $textMessage = new TextMessageBuilder("こんにちは");
                 // $lineBotService = new LineBotService;
                 // $lineBotService->getToilet($lineBot, $event);
-                $texttest = $event->getText();
-                $text = new TextMessageBuilder($texttest);
+                $inputText = $event->getText();
+                $toilet = Toilet::query()->where('toilet_name', 'like', '%' . $inputText . '%')->first();
+                $toiletName = $toilet->toilet_name;
+                $text = new TextMessageBuilder($toiletName);
                 $lineBot->replyMessage($replyToken, $text);
-                $lineBot->replyMessage($replyToken, $textMessage);
+                // $lineBot->replyMessage($replyToken, $textMessage);
             }
         } catch (Exception $e) {
             // TODO 例外
