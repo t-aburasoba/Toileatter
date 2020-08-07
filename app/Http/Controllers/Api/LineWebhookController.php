@@ -47,6 +47,9 @@ class LineWebhookController extends Controller
                 if (!$toilet) {
                     $text = new TextMessageBuilder('その駅にはトイレが見つからないよ。他の駅名で探してみて');
                     $lineBot->replyMessage($replyToken, $text);
+                } elseif ($toilet->totalization->total_user === 0) {
+                    $text = new TextMessageBuilder('その駅には評価がまだないよ。ぜひ評価をしてね。');
+                    $lineBot->replyMessage($replyToken, $text);
                 } else {
                     $toiletName = $toilet->toilet_name;
                     $evaluation = $toilet->totalization->evaluation;
@@ -54,7 +57,7 @@ class LineWebhookController extends Controller
                     $probability_enter_female = $toilet->totalization->probability_enter_female;
                     $number_male = $toilet->totalization->number_male;
                     $number_female = $toilet->totalization->number_female;
-                    $content = $toiletName . 'は評価が' . $evaluation . 'です。男性の個室(' . $number_male . '部屋)に入れる確率：' . $probability_enter_male . '% 女性の個室（' . $number_female . '部屋）に入れる確率：' . $probability_enter_female . '%';
+                    $content = $toiletName . 'は評価(5段階)が' . $evaluation . 'です。男性の個室(' . $number_male . '部屋)に入れる確率：' . $probability_enter_male . '% 女性の個室（' . $number_female . '部屋）に入れる確率：' . $probability_enter_female . '%';
                     $text = new TextMessageBuilder($content);
                     $lineBot->replyMessage($replyToken, $text);
                 }
