@@ -12,7 +12,7 @@ class LineBotService
 {
     public function getToilet($lineBot, $event)
     {
-        $text = $event->getText;
+        $text = $event->getText();
         $replyToken = $event->getReplyToken();
         $lineBotService = new LineBotService;
         $lineBot->replyMessage($replyToken, $text);
