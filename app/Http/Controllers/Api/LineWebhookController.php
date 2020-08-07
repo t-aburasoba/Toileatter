@@ -10,6 +10,7 @@ use LINE\LINEBot\SignatureValidator;
 use LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 use Exception;
+use App\Services\LineBotService;
 
 class LineWebhookController extends Controller
 {
@@ -37,6 +38,8 @@ class LineWebhookController extends Controller
                 // ハローと応答する
                 $replyToken = $event->getReplyToken();
                 $textMessage = new TextMessageBuilder("こんにちは");
+                $lineBotService = new LineBotService;
+                $lineBotService->getToilet($lineBot, $event);
                 $lineBot->replyMessage($replyToken, $textMessage);
             }
         } catch (Exception $e) {
