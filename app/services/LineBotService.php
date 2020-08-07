@@ -15,6 +15,6 @@ class LineBotService
         $text = $event->getText();
         $replyToken = $event->getReplyToken();
         $lineBotService = new LineBotService;
-        $lineBot->replyMessage($replyToken, $text);
+        $lineBot->replyMessage($replyToken, 'aaaaa');
     }
 }
