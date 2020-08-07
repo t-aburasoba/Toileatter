@@ -44,7 +44,7 @@ class LineWebhookController extends Controller
                 $inputText = $event->getText();
                 $toilet = Toilet::query()->where('toilet_name', 'like', '%' . $inputText . '%')->first();
 
-                if ($inputText === "お腹痛い" || $inputText === "腹痛" || $inputText === "辛い" || $inputText === "トイレ") {
+                if ($inputText === "お腹痛い" || $inputText === "腹痛" || $inputText === "辛い" || $inputText === "トイレ" || $inputText === "やばい" || $inputText === "ヤバイ") {
                     $text = new TextMessageBuilder('お腹が痛いんだね。駅名を入力してみて');
                     $lineBot->replyMessage($replyToken, $text);
                 }
