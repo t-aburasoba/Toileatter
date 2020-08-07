@@ -40,7 +40,8 @@ class LineWebhookController extends Controller
                 $textMessage = new TextMessageBuilder("こんにちは");
                 // $lineBotService = new LineBotService;
                 // $lineBotService->getToilet($lineBot, $event);
-                $text = $event->getText();
+                $texttest = $event->getText();
+                $text = new TextMessageBuilder($texttest);
                 $lineBot->replyMessage($replyToken, $text);
                 $lineBot->replyMessage($replyToken, $textMessage);
             }
