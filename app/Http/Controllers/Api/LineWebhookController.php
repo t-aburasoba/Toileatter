@@ -43,9 +43,14 @@ class LineWebhookController extends Controller
                 // $lineBotService->getToilet($lineBot, $event);
                 $inputText = $event->getText();
                 $toilet = Toilet::query()->where('toilet_name', 'like', '%' . $inputText . '%')->first();
-                $toiletName = $toilet->toilet_name;
-                $text = new TextMessageBuilder($toiletName);
-                $lineBot->replyMessage($replyToken, $text);
+                if (!$toilet) {
+                    $text = new TextMessageBuilder('トイレが見つからないよ。他の駅名で探してみて');
+                    $lineBot->replyMessage($replyToken, $text);
+                } else {
+                    $toiletName = $toilet->toilet_name;
+                    $text = new TextMessageBuilder($toiletName);
+                    $lineBot->replyMessage($replyToken, $text);
+                }
                 // $lineBot->replyMessage($replyToken, $textMessage);
             }
         } catch (Exception $e) {
