@@ -52,7 +52,9 @@ class LineWebhookController extends Controller
                     $text = new TextMessageBuilder('その駅にはトイレが見つからないよ。他の駅名で探してみて');
                     $lineBot->replyMessage($replyToken, $text);
                 } elseif ($toilet->totalization->total_users === 0) {
-                    $text = new TextMessageBuilder('その駅には評価がまだないよ。ぜひ評価をしてね。');
+                    $toiletName = $toilet->toilet_name;
+                    $content = $toiletName . 'にはまだ評価がないよ。ぜひ評価をしてね。';
+                    $text = new TextMessageBuilder($content);
                     $lineBot->replyMessage($replyToken, $text);
                 } else {
                     $toiletName = $toilet->toilet_name;
