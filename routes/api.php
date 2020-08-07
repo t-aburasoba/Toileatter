@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/toilet/{toiletId}/like', 'LikeController@like');
 Route::post('/toilet/{toiletId}/unlike', 'LikeController@unlike');
+Route::group(['namespace' => 'Api'], function() {
+    // LineからのWebhookを受信
+    Route::post('/line/webhook', 'LineWebhookController@webhook')->name('line.webhook');
+});
