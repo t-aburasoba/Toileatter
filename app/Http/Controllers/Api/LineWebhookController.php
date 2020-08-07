@@ -43,12 +43,17 @@ class LineWebhookController extends Controller
                 // $lineBotService->getToilet($lineBot, $event);
                 $inputText = $event->getText();
                 $toilet = Toilet::query()->where('toilet_name', 'like', '%' . $inputText . '%')->first();
+
                 if (!$toilet) {
-                    $text = new TextMessageBuilder('トイレが見つからないよ。他の駅名で探してみて');
+                    $text = new TextMessageBuilder('その駅にはトイレが見つからないよ。他の駅名で探してみて');
                     $lineBot->replyMessage($replyToken, $text);
                 } else {
                     $toiletName = $toilet->toilet_name;
-                    $text = new TextMessageBuilder($toiletName);
+                    $evaluation = $toilet->totalization->evaluation;
+                    $probability_enter_male = $toilet->totalization->probability_enter_male;
+                    $probability_enter_female = $toilet->totalization->probability_enter_female;
+                    $content = $toiletName . 'は評価が' . $evaluation . 'です。男性の個室に入れる確率：' . $probability_enter_male . '女性は' . $probability_enter_female;
+                    $text = new TextMessageBuilder($content);
                     $lineBot->replyMessage($replyToken, $text);
                 }
                 // $lineBot->replyMessage($replyToken, $textMessage);
