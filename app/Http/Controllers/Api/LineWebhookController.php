@@ -52,7 +52,9 @@ class LineWebhookController extends Controller
                     $evaluation = $toilet->totalization->evaluation;
                     $probability_enter_male = $toilet->totalization->probability_enter_male;
                     $probability_enter_female = $toilet->totalization->probability_enter_female;
-                    $content = $toiletName . 'は評価が' . $evaluation . 'です。男性の個室に入れる確率：' . $probability_enter_male . '女性は' . $probability_enter_female;
+                    $number_male = $toilet->number_male;
+                    $number_female = $toilet->number_female;
+                    $content = $toiletName . 'は評価が' . $evaluation . 'です。男性の個室(' . $number_male . '部屋)に入れる確率：' . $probability_enter_male . '% 女性の個室（' . $number_female . '部屋）に入れる確率：' . $probability_enter_female　. '%';
                     $text = new TextMessageBuilder($content);
                     $lineBot->replyMessage($replyToken, $text);
                 }
