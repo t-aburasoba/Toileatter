@@ -36,7 +36,7 @@ class LineWebhookController extends Controller
             foreach ($events as $event) {
                 // ハローと応答する
                 $replyToken = $event->getReplyToken();
-                $textMessage = new TextMessageBuilder("ハロー");
+                $textMessage = new TextMessageBuilder("こんにちは");
                 $lineBot->replyMessage($replyToken, $textMessage);
             }
         } catch (Exception $e) {
