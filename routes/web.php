@@ -32,6 +32,8 @@ Route::POST('/search', 'PostsController@search')->name('posts.search');
 Route::get('auth/twitter', 'Auth\AuthController@TwitterRedirect')->name("twitter.login");
 Route::get('auth/twitter/callback', 'Auth\AuthController@TwitterCallback');
 Route::get('auth/twitter/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/line', 'Auth\AuthController@LineRedirect')->name("line.login");
+Route::get('auth/line/callback', 'Auth\AuthController@LineCallback');
 
 // Route::get('/login/twitter', 'Auth\TwitterController@redirectToProvider')->name("twitter.login");
 // Route::get('/login/twitter/callback', 'Auth\TwitterController@handleProviderCallback'); 

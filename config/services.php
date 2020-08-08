@@ -44,4 +44,10 @@ return [
         'api_key'=> env('GOOGLE_MAP_API_KEY'),
     ],
 
+    'line' => [
+        'client_id'     => env('LINE_CLIENT_ID'),
+        'client_secret' => env('LINE_CLIENT_SECRET'),
+        'redirect'      => env('LINE_CALLBACK_URL'),
+    ],
+
 ];
