@@ -19,6 +19,7 @@ class ChangeUsersTableAddOauthColumns extends Migration
             $table->unsignedBigInteger('github_id')->nullable()->after('remember_token')->comment('GitHub ID');
             $table->unsignedBigInteger('google_id')->nullable()->after('remember_token')->comment('Google ID');
             $table->unsignedBigInteger('yahoo_id')->nullable()->after('remember_token')->comment('Yahoo ID');
+            $table->string('line_id')->nullable()->after('yahoo_id')->comment('Line ID');
         });
     }
 
@@ -35,6 +36,7 @@ class ChangeUsersTableAddOauthColumns extends Migration
             $table->dropColumn('github_id');
             $table->dropColumn('google_id');
             $table->dropColumn('yahoo_id');
+            $table->dropColumn('line_id');
         });
     }
 }

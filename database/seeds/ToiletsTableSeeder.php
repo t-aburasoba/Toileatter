@@ -11,7 +11,7 @@ class ToiletsTableSeeder extends Seeder
      */
     public function run()
     {
-        if ($this->app->environment() === 'production') {
+        if (env('APP_ENV') === 'production') {
             DB::table('toilets')->insert([
                 ['toilet_name' => '有楽町駅中央西口',
                 'latitude'=>'35.6749998',
