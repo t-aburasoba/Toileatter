@@ -73,9 +73,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" style="color: #eee;" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                                <li class="nav-item" style="cursor: pointer;">
-                                    <a class="nav-link" style="color: #eee;" data-toggle="modal" data-target="#myModal">How to use</a>
-                                </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
