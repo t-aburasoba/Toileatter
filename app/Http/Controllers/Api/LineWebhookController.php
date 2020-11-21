@@ -53,7 +53,7 @@ class LineWebhookController extends Controller
                     $lineBot->replyMessage($replyToken, $text);
                 } elseif ($toilet->totalization->total_users === 0) {
                     $toiletName = $toilet->toilet_name;
-                    $content = $toiletName . 'にはまだ評価がないよ。ぜひ評価をしてね。';
+                    $content = $toiletName . 'にはまだ評価がないよ。ぜひ評価をしてね。https://liff.line.me/1654656660-JjYQ28QM';
                     $text = new TextMessageBuilder($content);
                     $lineBot->replyMessage($replyToken, $text);
                 } else {
